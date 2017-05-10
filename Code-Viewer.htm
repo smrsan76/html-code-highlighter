@@ -1,0 +1,4289 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Code Viewer</title>
+    <script type="text/javascript" language="javascript" src="../snake.js" ></script>
+    <script type="text/javascript" language="javascript" src="code-viewer-html-2.js" ></script>
+    <link rel="stylesheet" type="text/css" href="code-viewer-html-2.css" />
+    
+</head>
+<body>
+    
+    <p>It's important to know how to select elements using javaSnake in JavaScript.<br>Therefore, look at codes below:</p>
+
+<div class='javasnake-code-box-html-2' ><pre>&lt;script language=&#39;javascript&#39; type=&#39;text/javascript&#39; &gt;
+/*
+ *	In The Name Of God
+ *	javaSnake &gt; JavaScript
+ *	By SMRSAN
+ *	
+ *	WebLog:
+ *			http://mreza-7.blogfa.com/
+ *	WebSite:
+ *			http://www.javaSnake.com/
+ */
+//Start Of javaSnake In Function Mode
+var javaSnake = (function(slct, index){
+	
+	//javaSnake Main Variables
+	/*var JS_MAIN_Something....
+	*/
+	
+	//Main SELECTOR Funciton
+	&quot;use strict&quot;;
+	return  function(slct, index){
+		
+		/*DANGER*/
+		var S = []; /*Main Variable For Functions &amp; Matched Elements !!!*/
+		
+		if(typeof slct === &#39;string&#39;){
+			
+			var slct2 = slct.toLowerCase();
+			
+			if(slct2.search(/^(\s*[\$])/) === -1){
+				
+				var temp = document.querySelectorAll(slct);//Using Temp For Read-Only Properties
+				for(let i=0; i&lt;temp.length; i++){ S.push(temp[i]); }//Make Them ReWritable !!!
+				
+			} else {
+				
+				/*
+				 *	Commands Of &#39;SELECTOR&#39;() Function !
+				 */
+				
+				switch(slct2.replace(/([\s]+(?=[\S]+))|([\s]+(?![\S]+))/gim,&#39;&#39;)){
+					
+					case &#39;$ajax&#39;:
+						
+						S.push(readyAjax_());
+						
+						// Ajax Functions //
+						
+						S.getAjax = function(){ return S[0]; };
+						S.open = function(type,url,sync){
+							
+							if(typeof type === &#39;string&#39; &amp;&amp; typeof url === &#39;string&#39; &amp;&amp; typeof sync === &#39;boolean&#39;){
+								
+								S[0].open(type,url,sync);
+								return S;//Continue Developing
+								
+							} else {
+								
+								window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nTypeOf open() Function Arguments Are Wrong !&quot;);
+								
+							}
+							
+						};
+						S.get = function(url,sync){
+							
+							if(typeof url === &#39;string&#39; &amp;&amp; typeof sync === &#39;boolean&#39;){
+								
+								S[0].open(&quot;GET&quot;,url,sync);
+								return S;//Continue Developing
+								
+							} else {
+								
+								window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nTypeOf get() Function Argument(s) Are Wrong !&quot;);
+								
+							}
+							
+						};
+						S.post = function(url,sync){
+							
+							
+							if(typeof url === &#39;string&#39; &amp;&amp; typeof sync === &#39;boolean&#39;){
+								
+								S[0].open(&quot;POST&quot;,url,sync);
+								return S;//Continue Developing
+								
+							} else {
+								
+								window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nTypeOf post() Function Arguments Are Wrong !&quot;);
+							}
+							
+						};
+						S.send = function(values){
+							
+							if(values === undefined){
+								
+								S[0].send();
+								
+							} else {
+								if(typeof values === &#39;string&#39;){
+									
+									S[0].send(values);
+									
+								} else {
+									
+									window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nPut String Value In send() Function !&quot;);
+									
+								}
+							}
+							return S;//Continue Developing
+							
+						};
+						S.readyChange = function(func){
+							
+							if(typeof func === &#39;function&#39;){
+								S[0].onreadystatechange = func;
+								return S;//Continue Developing
+							} else {
+								
+								window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nPut A Function Value In readyChange() Function !&quot;);
+								
+							}
+							
+						};
+						S.isDone = function(){
+							
+							return (S[0].readyState === (XMLHttpRequest.DONE || ActiveXObject.DONE));
+							
+						};
+						S.reqHead = function(property,value){
+							
+							if(typeof property === &#39;string&#39; &amp;&amp; typeof value === &#39;string&#39;){
+								
+								S[0].setRequestHeader(property,value);
+								
+							} else {
+								
+								window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nPut String Values In Both Arguments Of reqHead() Function !&quot;);
+								
+							}
+							
+						};
+						S.readyState = function(){
+							
+							return S[0].readyState;
+							
+						};
+						S.status = function(){
+							
+							return S[0].status;
+							
+						};
+						S.statusTxt = function(){
+							
+							return S[0].statusText;
+							
+						};
+						S.respTxt = function(){
+							
+							return S[0].responseText;
+							
+						};
+						S.respXml = function(){
+							
+							return S[0].responseXML;
+							
+						};
+						//End Of Ajax Functions
+						
+					return S; //End Of {$ajax} Command
+					case &#39;$about&#39;:
+					return {
+						creator          : &quot;SMRSAN&quot;,
+						webLog           : &quot;http://mreza-7.blogfa.com/&quot;,
+						webSite          : [&quot;http://www.javaSnake.com/&quot;,&quot;http:/www.javaSnake.org/&quot;,&quot;http://www.javaSnake.ir/&quot;],
+						version          : &quot;v0.0.1&quot;,
+						firstPublishDate : &quot;1395 | 2016&quot;,
+						publishDate      : &quot;1395 | 2016&quot;
+					}; //End Of {$about} Command
+					case &#39;$arr&#39;:
+					return []; //End Of {$arr} Command
+					case &#39;$obj&#39;:
+					return {}; //End Of {$obj} Command
+					case &#39;$reg&#39;:
+					return new RegExp(); //End Of {$reg} Command
+					case &#39;$new&#39;:
+						
+						if(typeof index === &#39;string&#39;){
+							
+							try{
+								
+								return document.createElement(index);
+								
+							} catch(e) {
+								
+								window.javaSnake.error(&quot;javaSnake_S_{$new}: Enter A Valid String For Name Of New Element In The Second Argument Of &#39;SELECTOR&#39;() Function !&quot;);
+								
+							}
+							
+						} else if(typeof index === &#39;object&#39;){
+							
+							try{
+								
+								return index.cloneNode(true);
+								
+							} catch(e) {
+								
+								window.javaSnake.error(&quot;javaSnake_S_{$new}: The Object That You Put In The Second Argument Of &#39;SELECTOR&#39;() Function\nWas Not A DOMObject !&quot;);
+								
+							}
+							
+						} else {
+							
+							window.javaSnake.error(&quot;javaSnake_S_{$new}: Put String/DOMObject In The Second Argument Of &#39;SELECTOR&#39;() Function !&quot;);
+							
+						}
+						
+					break; //End Of {$new} Command
+					//***************Develop It !***************
+					//You Can Also Make Your Own Commands Here !
+					
+				}
+				
+			}
+			
+		} else if(slct.length){ //If General Array//
+			
+			for(let i=0; i&lt;slct.length; i++){ //Selects Elements In General Array
+				
+				if(typeof slct[i] === &#39;string&#39;){ //If String In General Array
+					
+					var slctTemp = &quot;&quot;;
+						slctTemp += slct[i];
+					
+					if(i === (slct.length-1) &amp;&amp; slct.length &gt; 1 &amp;&amp; slctTemp.search(/[$\$]/) !== -1){
+						slct[i] = slct[i].toLowerCase();
+						switch (slct[i]){
+							case &#39;$odd&#39;:
+								var temp = [];
+								for(let j=0; j&lt;S.length; j++){
+									if(j === 0 || j%2 === 0){
+										temp.push(S[j]);
+									}
+								}
+								S = temp;
+							break;
+							case &#39;$even&#39;:
+								var temp = [];
+								for(let j=0; j&lt;S.length; j++){
+									if(j === 1 || j%2 !== 0){
+										temp.push(S[j]);
+									}
+								}
+								S = temp;
+							break;
+							case &#39;$first&#39;:
+								S = [S[0]];
+							break;
+							case &#39;$last&#39;:
+								S = [S[S.length-1]];
+							break;
+							default:
+								window.javaSnake.error(&quot;javaSnake_S: The Command That You Entered,\n[&quot; + slct[i] + &quot;] Was Invalid !&quot;);
+							break;
+						}
+					} else {
+						var temp = document.querySelectorAll(slct[i]);
+						for(let j=0; j&lt;temp.length; j++){
+							S.push(temp[j]);
+						}
+					}
+					
+				} else if(slct[i].length){ //If Array In General Array
+					
+					var elems = [];
+						
+					for(let j=0; j&lt;slct[i].length; j++){ //Each Selects
+					
+						var selects = slct[i][j];
+						
+						if(j === (slct[i].length-1) &amp;&amp; slct[i].length &gt; 1){
+							
+							if(typeof selects === &#39;string&#39;){ //If Ender String
+								
+								var selects_Temp = &quot;&quot;;
+									selects_Temp += selects;
+								
+								if(selects_Temp.search(/[$\$]/) !== -1){//If An Ender Command
+									selects = selects.toLowerCase();
+									switch (selects){
+										case &quot;$odd&quot;:
+											var temp = [];
+											for(let k=0; k&lt;elems.length; k++){
+												if(k === 0 || k%2 === 0){
+													temp.push(elems[k]);
+												}
+											}
+											elems = temp;
+											for(let k=0; k&lt;elems.length; k++){ S.push(elems[k]); } //Push Elements In S
+										break;
+										case &quot;$even&quot;:
+											var temp = [];
+											for(let k=0; k&lt;elems.length; k++){
+												if(k === 1 || k%2 !== 0){
+													temp.push(elems[k]);
+												}
+											}
+											elems = temp;
+											for(let k=0; k&lt;elems.length; k++){ S.push(elems[k]); } //Push Elements In S
+										break;
+										case &quot;$first&quot;:
+											elems = [elems[0]];
+											for(let k=0; k&lt;elems.length; k++){ S.push(elems[k]); } //Push Elements In S
+										break;
+										case &quot;$last&quot;:
+											elems = [elems[elems.length-1]];
+											for(let k=0; k&lt;elems.length; k++){ S.push(elems[k]); } //Push Elements In S
+										break;
+										default:
+											window.javaSnake.error(&quot;javaSnake_S: The Command That You Entered,\n[&quot; + selects + &quot;] Was Invalid !&quot;);
+										break;
+									}
+								} else {
+									
+									//Just Selects That
+									selects = document.querySelectorAll(selects);
+									for(let k=0; k&lt;selects.length; k++){
+										elems.push(selects[k]);
+									}
+									for(let k=0; k&lt;elems.length; k++){ S.push(elems[k]); } //Push Elements In S
+									
+								}
+								
+							} else if(typeof selects === &#39;object&#39;){ //If Ender Object
+								elems.push(selects);
+								for(let k=0; k&lt;elems.length; k++){ S.push(elems[k]); } //Push Elements In S
+							} else if(typeof selects === &#39;number&#39;){ //If Ender Number
+								S.push(elems[selects]); //Push Elements In S
+							}
+						} else {
+							//Push Selected Elements From Inner Array Selectors
+							if(typeof selects === &#39;string&#39;){
+								var temp = document.querySelectorAll(selects);
+								for(let k=0; k&lt;temp.length; k++){
+									if(slct[i].length &gt; 1) elems.push(temp[k]);
+									else S.push(temp[k]);
+								}
+							} else if(selects.length){
+								for(let k=0; k&lt;selects.length; k++){
+									if(slct[i].length &gt; 1) elems.push(selects[k]);
+									else S.push(selects[k]);
+								}
+							} else if(typeof selects === &#39;object&#39;){
+								if(slct[i].length &gt; 1) elems.push(selects);
+								else S.push(selects);
+							}
+						}
+						
+					}
+					
+				} else if(typeof slct[i] === &#39;object&#39;){ //If Object In General Array
+					S.push(slct[i]);
+				} else {
+					S = [S[Number(slct[i])]];
+				}
+				
+			}
+			
+		} else if(typeof slct === &#39;function&#39;){
+			
+			window.addEventListener(&#39;load&#39;,slct);
+			
+		} else if(typeof slct === &#39;object&#39;){
+			
+			//DANGER &gt; DO NOT MODIFY HERE !!!
+			//  IF YOU LOST BETWEEN CODES !!!
+			
+			if(slct.setRequestHeader){ //This Is An Ajax Object &gt; AJAX Object Mode
+				
+				S = [slct];
+						
+				// Ajax Functions //
+				
+				S.getAjax = function(){ return S[0]; };
+				S.open = function(type,url,sync){
+					
+					if(typeof type === &#39;string&#39; &amp;&amp; typeof url === &#39;string&#39; &amp;&amp; typeof sync === &#39;boolean&#39;){
+						
+						S[0].open(type,url,sync);
+						return S;//Continue Developing
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nTypeOf open() Function Arguments Are Wrong !&quot;);
+						
+					}
+					
+				};
+				S.get = function(url,sync){
+					
+					if(typeof url === &#39;string&#39; &amp;&amp; typeof sync === &#39;boolean&#39;){
+						
+						S[0].open(&quot;GET&quot;,url,sync);
+						return S;//Continue Developing
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nTypeOf get() Function Argument(s) Are Wrong !&quot;);
+						
+					}
+					
+				};
+				S.post = function(url,sync){
+					
+					
+					if(typeof url === &#39;string&#39; &amp;&amp; typeof sync === &#39;boolean&#39;){
+						
+						S[0].open(&quot;POST&quot;,url,sync);
+						return S;//Continue Developing
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nTypeOf post() Function Arguments Are Wrong !&quot;);
+					}
+					
+				};
+				S.send = function(values){
+					
+					if(values === undefined){
+						
+						S[0].send();
+						
+					} else {
+						if(typeof values === &#39;string&#39;){
+							
+							S[0].send(values);
+							
+						} else {
+							
+							window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nPut String Value In send() Function !&quot;);
+							
+						}
+					}
+					return S;//Continue Developing
+					
+				};
+				S.readyChange = function(func){
+					
+					if(typeof func === &#39;function&#39;){
+						
+						S[0].onreadystatechange = func;
+						return S;//Continue Developing
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nPut A Function Value In readyChange() Function !&quot;);
+						
+					}
+					
+				};
+				S.isDone = function(){
+					
+					return (S[0].readyState === (XMLHttpRequest.DONE || ActiveXObject.DONE));
+					
+				};
+				S.reqHead = function(property,value){
+					
+					if(typeof property === &#39;string&#39; &amp;&amp; typeof value === &#39;string&#39;){
+						
+						S[0].setRequestHeader(property,value);
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Check Your Ajax Code\nPut String Values In Both Arguments Of reqHead() Function !&quot;);
+						
+					}
+					
+				};
+				S.readyState = function(){
+					
+					return S[0].readyState;
+					
+				};
+				S.status = function(){
+					
+					return S[0].status;
+					
+				};
+				S.statusTxt = function(){
+					
+					return S[0].statusText;
+					
+				};
+				S.respTxt = function(){
+					
+					return S[0].responseText;
+					
+				};
+				S.respXml = function(){
+					
+					return S[0].responseXML;
+					
+				};
+				//End Of Ajax Functions
+		
+				return S;
+		
+			} else { //Normal DOMObject Mode
+				
+				S = [slct];
+				
+			}
+			
+		}
+		
+		if(index !== undefined){ //Check General Index Adjustment
+			if(typeof index === &#39;string&#39;){
+				index = index.toLowerCase();
+				switch (index){
+					case &quot;$odd&quot;:
+						var temp = [];
+						for(let i=0; i&lt;S.length; i++){
+							if(i === 0 || i%2 === 0){
+								temp.push(S[i]);
+							}
+						}
+						S = temp;
+					break;
+					case &quot;$even&quot;:
+						var temp = [];
+						for(let i=0; i&lt;S.length; i++){
+							if(i === 1 || i%2 !== 0){
+								temp.push(S[i]);
+							}
+						}
+						S = temp;
+					break;
+					case &quot;$first&quot;:
+						S = [S[0]];
+					break;
+					case &quot;$last&quot;:
+						S = [S[S.length-1]];
+					break;
+					default:
+						S = [S[Number(index)]];
+					break;
+				}
+			} else if(typeof index === &#39;number&#39;){
+				S = [S[index]];
+			}
+		}
+		
+		
+		var ARRAY = []; //
+		S.splice  = ARRAY.splice; //
+		S.split   = ARRAY.split ; // REDEFINE TO TRUST
+		S.push    = ARRAY.push  ; //
+		////////////////////////////
+		
+		
+		//Start Of Function Variables
+		var _c$$_ = function (){
+		/*
+		 *	c$$ Function
+		 *	For Easier Style
+		 *	In JavaScript
+		 */
+		
+			var props = [],
+				vals  = [],
+				returnProp = null;
+			/*
+			 *	Load Properties And Values
+			 */
+			for(let j=0; j&lt;arguments.length; j++){ //ForEach Argument
+				var style = arguments[j];
+				if(typeof style == &#39;string&#39;){ //If String Style
+					
+					var arr = style.split(/[\:|;]/g);
+					for(let i=0; i&lt;arr.length; i += 2) props.push(arr[i].replace(/ /g,&quot;&quot;));
+					for(let i=1; i&lt;arr.length; i += 2) vals.push(arr[i]);
+					
+				} else if(typeof style == &#39;object&#39;){ //If Object Style
+					for(let i=0; i&lt;S.length; i++){
+						for(let myStyleName in style){
+							if(myStyleName in S[i].style){
+								
+								if(style[myStyleName].toLowerCase().trim() == &quot;$get&quot;){//Get Property Command
+									returnProp = S[i].style[myStyleName];
+									continue;
+								}
+								
+								S[i].style[myStyleName] = style[myStyleName];
+								
+							}
+						}
+					}
+				}
+			}
+			/*
+			 *	Do Styles On Each Elements
+			 */
+			
+			for(let j=0; j&lt;props.length; j++){   //ForEach Style
+				for(let i=0; i&lt;this.length; i++){ //ForEach Element
+					
+					props[j] = props[j].toLowerCase();
+					
+					var p = window.javaSnake.styleToJs(props[j]);
+					
+					if(vals[j].toLowerCase().trim() === &quot;$get&quot;){//Get Property Command
+						
+						returnProp = S[i].style[p];
+						continue;
+						
+					}
+					
+					if(p in this[i].style) this[i].style[p] = vals[j];
+					
+				}
+			}
+			
+			return (returnProp != null)? returnProp:S;/*Continue Developing !!!*/
+		},
+		_css_ = function (){
+		/*
+		 *	Function For Set Some Style (Like jQuery Library)
+		 */
+			for(let g=0; g&lt;arguments.length; g++){
+				
+				if(typeof arguments[g] === &#39;object&#39;){
+					
+					var styleObj = arguments[g];
+					
+					for(let i=0; i&lt;S.length; i++){
+						
+						for(let myStyleName in styleObj){
+							
+							if(myStyleName in S[i].style){
+								
+								S[i].style[myStyleName] = styleObj[myStyleName];
+								
+							}
+							
+						}
+						
+					}
+					
+				} else if(typeof arguments[g] === &#39;string&#39;){
+					
+					if(typeof arguments[g+1] === &#39;string&#39;){
+						
+						if(arguments[g] in this[0].style){
+							
+							for(let i=0; i&lt;this.length; i++){
+								
+								this[i].style[arguments[g]] = arguments[g+1];
+								g++;
+							}
+							
+						}
+						
+					} else {
+						
+						if(arguments[g] in this[0].style){
+							
+							return this[0].style[arguments[g]];
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+			return S; /*Continue Developing !!!*/
+		},
+		_remove_ = function (){
+		/*
+		 *	Function For Remove Selected Elements
+		 */
+			for(let i=0; i&lt;this.length; i++){
+				this[i].parentElement.removeChild(this[i]);
+			}
+		},
+		_appendChild_ = function (element,pushFlag){
+		/*
+		 *	Function For AppendChild To Selected Elements
+		 */
+			
+			var appendedChilds = [];
+			
+			switch(typeof element){
+				case &#39;object&#39;:
+					for(let i=0; i&lt;this.length; i++){
+						var copy = element.cloneNode(true);
+						this[i].appendChild(copy);
+						appendedChilds.push(copy);
+					}
+				break;
+				case &#39;array&#39;:
+					for(let j=0; j&lt;element.length; j++){
+						for(let i=0; i&lt;this.length; i++){
+							var copy = element[j].cloneNode(true);
+							this[i].appendChild(copy);
+							appendedChilds.push(copy);
+						}
+					}
+				break;
+			}
+			
+			if(pushFlag === undefined) pushFlag = false;
+			
+			if(pushFlag){
+				S.splice(0,this.length);
+				for(let i=0; i&lt;appendedChilds.length; i++)
+					S.push(appendedChilds[i]);
+			}
+			
+			return S; /*Continue Developing !!!*/
+		},
+		_before_ = function (element,pushFlag){
+		/*
+		 *	Function For insertAfter Of Selected Elements
+		 */
+			
+			if(pushFlag === undefined) pushFlag = false;
+			
+			var pushedElems = [];
+			
+			switch(typeof element){
+				
+				case &#39;object&#39;:
+					
+					try{
+						if(element.length){//IF ARRAY
+							for(let j=0; j&lt;element.length; j++){
+								for(let i=0; i&lt;this.length; i++){
+									var copy = element[j].cloneNode(true);
+									this[i].parentNode.insertBefore(copy, this[i]);
+									if(pushFlag) pushedElems.push(copy);
+								}
+							}
+							
+							if(pushFlag){
+								S.splice(0,this.length);
+								for(let i=0; i&lt;pushedElems.length; i++) S.push(pushedElems[i]);
+							}
+							
+							return S; /*Continue Developing !!!*/
+						} else {//IF OBJECT
+							for(let i=0; i&lt;this.length; i++){
+								var copy = element.cloneNode(true);
+								this[i].parentNode.insertBefore(copy, this[i]);
+								if(pushFlag) pushedElems.push(copy);
+							}
+							
+							if(pushFlag){
+								S.splice(0,this.length);
+								for(let i=0; i&lt;pushedElems.length; i++) S.push(pushedElems[i]);
+							}
+							
+							return S; /*Continue Developing !!!*/
+						}
+					} catch(e) {
+						
+						window.javaSnake.error(&quot;javaSnake: Put DOMObject In before() Function !&quot;);
+						
+					}
+					
+				break;
+				case &#39;string&#39;:
+					
+					element = document.createTextNode(element);
+					
+					for(let i=0; i&lt;this.length; i++){
+						var copy = element.cloneNode(true);
+						this[i].parentNode.insertBefore(copy, this[i]);
+						if(pushFlag) pushedElems.push(copy);
+					}
+					
+					if(pushFlag){
+						S.splice(0,this.length);
+						for(let i=0; i&lt;pushedElems.length; i++) S.push(pushedElems[i]);
+					}
+					
+					return S; /*Continue Developing !!!*/
+					
+				break;
+				default:
+					
+					window.javaSnake.error(&quot;javaSnake: Put DOMObject Or String Value In before() Function !&quot;);
+					
+				break;
+				
+			}
+		},
+		_after_ = function (element,pushFlag){
+		/*
+		 *	Function For insertAfter Of Selected Elements
+		 */
+			
+			if(pushFlag === undefined) pushFlag = false;
+			
+			var pushedElems = [];
+			
+			switch(typeof element){
+				
+				case &#39;object&#39;:
+					
+					try{
+						if(element.length){//IF ARRAY
+							for(let j=0; j&lt;element.length; j++){
+								for(let i=0; i&lt;this.length; i++){
+									var copy = element[j].cloneNode(true);
+									if(pushFlag) pushedElems.push(copy);
+									if(this[i].nextSibling){
+										this[i].parentNode.insertBefore(copy, this[i].nextSibling);
+									} else {
+										var elemIndex = indexOfElement_(this[i]);
+										if(elemIndex + 1 == this[i].parentElement.childNodes.length){
+											this[i].parentNode.appendChild(copy);
+										} else {
+											this[i].parentNode.insertBefore(copy, this[i].parentNode.childNodes[elemIndex + 1]);
+										}
+									}
+								}
+							}
+							
+							if(pushFlag){
+								S.splice(0,this.length);
+								for(let i=0; i&lt;pushedElems.length; i++) S.push(pushedElems[i]);
+							}
+							
+							return S; /*Continue Developing !!!*/
+						} else {//IF OBJECT
+							for(let i=0; i&lt;this.length; i++){
+								var copy = element.cloneNode(true);
+								if(pushFlag) pushedElems.push(copy);
+								if(this[i].nextSibling){
+									this[i].parentNode.insertBefore(copy, this[i].nextSibling);
+								} else {
+									var elemIndex = indexOfElement_(this[i]);
+									if(elemIndex + 1 == this[i].parentElement.childNodes.length){
+										this[i].parentNode.appendChild(copy);
+									} else {
+										this[i].parentNode.insertBefore(copy, this[i].parentNode.childNodes[elemIndex + 1]);
+									}
+								}
+							}
+							
+							if(pushFlag){
+								S.splice(0,this.length);
+								for(let i=0; i&lt;pushedElems.length; i++) S.push(pushedElems[i]);
+							}
+							
+							return S; /*Continue Developing !!!*/
+						}
+					} catch(e) {
+						
+						window.javaSnake.error(&quot;javaSnake: Put DOMObject Value In after() Function !&quot;);
+						
+					}
+					
+				break;
+				case &#39;string&#39;:
+					
+					element = document.createTextNode(element);
+					
+					for(let i=0; i&lt;this.length; i++){
+						var copy = element.cloneNode(true);
+						if(pushFlag) pushedElems.push(copy);
+						if(this[i].nextSibling){
+							this[i].parentNode.insertBefore(copy, this[i].nextSibling);
+						} else {
+							var elemIndex = indexOfElement_(this[i]);
+							if(elemIndex + 1 == this[i].parentElement.childNodes.length){
+								this[i].parentNode.appendChild(copy);
+							} else {
+								this[i].parentNode.insertBefore(copy, this[i].parentNode.childNodes[elemIndex + 1]);
+							}
+						}
+					}
+					
+					if(pushFlag){
+						S.splice(0,this.length);
+						for(let i=0; i&lt;pushedElems.length; i++) S.push(pushedElems[i]);
+					}
+					
+					return S; /*Continue Developing !!!*/
+					
+				break;
+				default:
+					
+					window.javaSnake.error(&quot;javaSnake: Put DOMObject Or String Value In after() Function !&quot;);
+					
+				break;
+				
+			}
+		},
+		_indexOfThese_ = function(){
+		/*
+		 *	Function For Getting Index Of An Element
+		 */
+			var indexArr = [];
+			
+			for(let i=0; i&lt;this.length; i++){
+				var indexNum = 0;
+				var temp = null;
+				if(this[i].previousSibling){
+					temp = this[i].previousSibling;
+					indexNum += 1;
+					while(temp.previousSibling){
+						temp = temp.previousSibling;
+						indexNum += 1;
+					}
+				}
+				indexArr.push(indexNum);
+			}
+			
+			return indexArr;
+		},
+		_html_ = function (html, continueDevFlag){
+		/*
+		 *	Function For Putting innerHTML(s)
+		 */
+			if(continueDevFlag === undefined){ continueDevFlag = false };
+			if(html !== undefined){
+				for(let i=0; i&lt;this.length; i++){
+					this[i].innerHTML = html;
+				}
+			} else {
+				if(!continueDevFlag){ return S[0].innerHTML; }
+			}
+			return S; /*Continue Developing !!!*/
+		},
+		_text_ = function (text,continueDevFlag){
+		/*
+		 *	Function For Setting/Getting Text(s)
+		 */
+			if(continueDevFlag === undefined){ continueDevFlag = false };
+			
+			if(text !== undefined){
+				for(let i=0; i&lt;this.length; i++){
+					this[i].textContent = text;
+				}
+			} else {
+				if(!continueDevFlag){
+					var texts = &#39;&#39;;
+					for(let i=0; i&lt;this.length; i++){
+						texts += this[i].textContent;
+					}
+					return texts;
+				}
+			}
+			return S; /*Continue Developing !!!*/
+		},
+		_val_ = function (value, continueDevFlag){
+		/*
+		 *	Function For Setting/Getting Values(s)
+		 */
+			if(continueDevFlag === undefined){ continueDevFlag = false }
+			
+			if(value !== undefined){
+				
+				for(let i=0; i&lt;S.length; i++){
+					S[i].value = value;
+				}
+				
+			} else {
+				if(!continueDevFlag){
+					return S[0].value;
+				}
+			}
+			return S; /*Continue Developing !!!*/
+		},
+		_attr_ = function (){
+		/*
+		 *	Function For Setting/Getting Values(s)
+		 */
+			var rtrn = null,
+				addFlag = false;
+			
+			if(typeof arguments[arguments.length-1] == &quot;boolean&quot;) addFlag = arguments[arguments.length-1];
+			
+			for(let i=0; i&lt;S.length; i++){/*Each Element*/
+				for(let j=0; j&lt;arguments.length; j++){/*Each Argument*/
+					var atr = arguments[j];
+					switch(typeof atr){
+						case &#39;string&#39;:
+							
+							if(typeof arguments[j+1] == &#39;string&#39;){
+								
+								if(addFlag){/*Current Attributes + New Attributes*/
+								
+									if(S[i].hasAttribute(atr)){
+										
+										S[i].setAttribute(atr, S[i].getAttribute(atr) + &quot; &quot; + arguments[j+1]);
+										
+									} else {
+										
+										S[i].setAttribute(atr, arguments[j+1]);
+										
+									}
+									
+								} else {/*Just New Attributes*/
+									
+									S[i].setAttribute(atr, arguments[j+1]);
+									
+								}
+								
+								j++;
+								
+							} else {
+								
+								rtrn = S[0].getAttribute(atr);
+								
+							}
+							
+						break;
+						case &#39;object&#39;:
+							
+							if(!addFlag){/*Just New Attributes*/
+								
+								for(let value in atr){ S[i].setAttribute(value, atr[value]); }
+								
+							} else {/*Current Attributes + New Attributes*/
+								
+								for(let value in atr){
+									
+									if(S[i].hasAttribute(value)){
+										
+										S[i].setAttribute(value, S[i].getAttribute(value) + &quot; &quot; + atr[value]);
+										
+									} else {
+										
+										S[i].setAttribute(value, atr[value]);
+										
+									}
+									
+								}
+								
+							}
+							
+						break;
+						case &#39;boolean&#39;: /*NoThing!*/ break;
+						default:
+							
+							window.javaSnake.error(&quot;javaSnake: Enter String Or Object Value In attr() Function !&quot;);
+							
+						break;
+					}
+				}
+			}
+			return rtrn != null? rtrn:S/*Continue Developing !!!*/;
+		},
+		_offset_ = function (adjustment, index){
+		/*
+		 *	Function For Adjust Offset(s)
+		 */
+			if(adjustment === undefined){
+				return {
+					top:S[0].offsetTop,
+					left:S[0].offsetLeft,
+					width:S[0].offsetWidth,
+					height:S[0].offsetHeight,
+					parent:S[0].offsetParent
+				};
+			} else if(typeof adjustment == &#39;object&#39;){
+				if(index !== undefined){
+					if(&quot;top&quot; in adjustment){
+						this[index].style.top = adjustment.top + &quot;px&quot;;
+					}
+					if(&quot;left&quot; in adjustment){
+						this[index].style.left = adjustment.left + &quot;px&quot;;
+					}
+				} else {
+					if(&quot;top&quot; in adjustment){
+						for(let i=0; i&lt;this.length; i++){
+							this[i].style.top = adjustment.top + &quot;px&quot;;
+						}
+					}
+					if(&quot;left&quot; in adjustment){
+						for(let i=0; i&lt;this.length; i++){
+							this[i].style.left = adjustment.left + &quot;px&quot;;
+						}
+					}
+				}
+				return S; /*Continue Developing !!!*/
+			} else {
+				window.javaSnake.error(&quot;javaSnake: Enter Object Value In offset() Function !&quot;);
+			}
+		},
+		_each_ = function(func){
+			
+			if(func !== undefined){
+				if(typeof func == &#39;function&#39;){
+					for(let i=0; i&lt;S.length; i++){ //Foreach Element
+						
+						S[i]._______F______ = func;
+						S[i]._______F______();
+						S[i]._______F______ = undefined;
+						
+					}
+					//for(let i=0; i&lt;S.length; i++){ S[i].f = null }
+				} else {
+					
+					window.javaSnake.error(&quot;javaSnake_S: Enter Function Value In each Function !&quot;);
+					
+				}
+			}
+			return S; /*Continue Developing !!!*/
+		},
+		_get_ = function(num){
+			
+			switch(typeof num){
+				
+				case &#39;number&#39;:
+					
+					if(num &gt; (S.length-1)) return S[S.length-1];
+					if(num &lt; 0) return S[0];
+					//else
+					return S[num];
+					
+				break;
+				case &#39;string&#39;:
+					
+					if(typeof Number(num) == &#39;number&#39;){
+						
+						var temp = Number(num);
+						
+						if(temp &gt; (S.length-1)) return S[S.length-1];
+						if(temp &lt; 0) return S[0];
+						//else
+						return S[temp];
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake: Put A String That Could Convert To Number\nIn The Argument Of get() Function !&quot;);
+						
+					}
+					
+				break;
+				case &#39;undefined&#39;:
+					
+					return S[0];
+					
+				break;
+				default:
+					
+					window.javaSnake.error(&quot;javaSnake: Put Number ,String Or Undefined Value In The Argument Of get() Function !\nThat Contains A Number .&quot;);
+					
+				break;
+				
+			}
+			
+		},
+		
+		/*///////////////////////////
+		/*	KeyBoard, Mouse, &amp; DOM  /
+		/*	Event Functions         /
+		/*///////////////////////////
+		
+		
+		
+		//Mouse Events//
+		_onMouseDown_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;mousedown&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onClick_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;click&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onMouseUp_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;mouseup&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onDblClick_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;dblclick&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onMouseOver_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;mouseover&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onMouseMove_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;mousemove&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onMouseOut_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;mouseout&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		
+		
+		
+		//DOM Events//
+		_onAbort_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;abort&quot;,func,useCapture);
+			return S; /*Continue Developing !!!*/
+		} },
+		_onBlur_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;blur&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onChange_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;change&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onActivate_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMActivate&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onAttributeNameChanged_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMAttributeNameChanged&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onAttributeModified_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMAttrModified&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onCharacterDataModified_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMCharacterDataModified&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onElementNameChanged_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMElementNameChanged&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onFocusIn_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMFocusIn&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onFocusOut_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMFocusOut&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onNodeInserted_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMNodeInserted&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onNodeInsertedIntoDocument_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMNodeInsertedIntoDocument&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onNodeRemoved_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMNodeRemoved&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onNodeRemovedFromDocument_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMNodeRemovedFromDocument&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onSubtreeModified_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;DOMSubtreeModified&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onError_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;error&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onFocus_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;focus&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onLoad_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;load&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onOffline_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;offline&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onOnline_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;online&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onReset_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;reset&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onResize_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;resize&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onScroll_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;scroll&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onSelect_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;select&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onSubmit_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;submit&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onTextInput_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;textInput&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onUnload_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;unload&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		
+		
+		
+		//KeyBoard Events//
+		_onKeyDown_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;keydown&quot;,func,useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onKeyUp_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;keyup&quot;,func, useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		_onKeyPress_ = function (func, useCapture){
+			if(useCapture === undefined){ useCapture = false; }
+			for(let i=0; i&lt;this.length; i++){ this[i].addEventListener(&quot;keypress&quot;,func, useCapture); }
+			return S; /*Continue Developing !!!*/
+		},
+		
+		//&#39;on&#39; Function For Multiple Or Single Events//
+		_on_ = function (events, func, useCapture){
+			
+			if(useCapture === undefined){ useCapture = false; }//Use Capture Default
+			
+			if(typeof events == &#39;string&#39;){ //For Each Selected Element
+				for(let i=0; i&lt;this.length; i++){
+					window.javaSnake.addEvent(func, events, this[i], useCapture);
+				}
+			} else if(events.length){
+				for(let i=0; i&lt;this.length; i++){ //For Each Selected Element
+					for(let j=0; j&lt;events.length; j++){ //For Each Event
+						window.javaSnake.addEvent(func, events[j], this[i], useCapture);
+					}
+				}
+			}
+			return S; /*Continue Developing !!!*/	//Add More &#39;Continue Developping&#39; For Functions That They Don&#39;t Return Anything !
+		},
+		
+		
+		
+		/*///////////////////////////
+		/*	Add, Remove, &amp; Toggle   /
+		/*	Class of Elements       /
+		/*///////////////////////////
+		
+		//Add//
+		_addClass_ = function (CLASS){
+			if(typeof CLASS == &#39;string&#39;){
+				
+				var classes = CLASS.split(&#39; &#39;);
+				
+				for(let i=0; i&lt;this.length; i++){
+					for(let j=0; j&lt;classes.length; j++){
+						
+						if(this[i].hasAttribute(&#39;class&#39;)){
+							var attr,
+								vals,
+								hasClass = false;
+							
+							attr = this[i].getAttribute(&#39;class&#39;);
+							vals = attr.split(&#39; &#39;);
+							
+							for(let k=0; k&lt;vals.length; k++){
+								if(vals[k] == classes[j]){
+									hasClass = true;
+								}
+							}
+							
+							if(!hasClass){
+								this[i].setAttribute(&#39;class&#39;, this[i].getAttribute(&#39;class&#39;) + &#39; &#39; + classes[j]);
+							}
+							
+						} else {
+							this[i].setAttribute(&#39;class&#39;, classes[j]);
+						}
+						
+					}
+				}
+			}
+			return S; /*Continue Developing !!!*/
+		},
+		//Remove//
+		_removeClass_ = function (CLASS){
+			if(typeof CLASS == &#39;string&#39;){
+				
+				var classes = CLASS.split(&#39; &#39;);
+				
+				for(let i=0; i&lt;this.length; i++){
+					for(let j=0; j&lt;classes.length; j++){
+						
+						if(this[i].hasAttribute(&#39;class&#39;)){
+							
+							var attr,
+								vals,
+								newClass = &quot;&quot;;
+							
+							attr = this[i].getAttribute(&#39;class&#39;);
+							vals = attr.split(&#39; &#39;);
+							
+							for(let k=0; k&lt;vals.length; k++){
+								if(vals[k] != classes[j]){
+									newClass += vals[k] + &#39; &#39;;
+								}
+							}
+							
+							if(newClass == &#39; &#39;){
+								this[i].removeAttribute(&#39;class&#39;);
+							} else {
+								this[i].setAttribute(&#39;class&#39;, newClass);
+							}
+							
+						} else { break; } //Because It Hasn&#39;t Got Any Class Attribute
+						
+					}
+				}
+			}
+			return S; /*Continue Developing !!!*/
+		},
+		//Toggle//
+		_toggleClass_ = function (CLASS){
+			if(typeof CLASS == &#39;string&#39;){
+				
+				var classes = CLASS.split(&#39; &#39;);
+				
+				for(let i=0; i&lt;this.length; i++){
+					for(let j=0; j&lt;classes.length; j++){
+						
+						if(this[i].hasAttribute(&#39;class&#39;)){
+							if(this[i].getAttribute != &quot;&quot; || this[i].getAttribute != &quot; &quot;){
+								var attr,
+									vals,
+									hasClass = false;
+								
+								attr = this[i].getAttribute(&#39;class&#39;);
+								vals = attr.split(&#39; &#39;);
+								
+								for(let k=0; k&lt;vals.length; k++){
+									if(vals[k] == classes[j]){
+										hasClass = true;
+									}
+								}
+								
+								if(hasClass){
+									
+									var newClass = &quot;&quot;;
+									
+									for(let k=0; k&lt;vals.length; k++){
+										if(vals[k] != classes[j]){
+											newClass += vals[k] + &#39; &#39;;
+										}
+									}
+									
+									if(newClass == &#39; &#39;){
+										this[i].removeAttribute(&#39;class&#39;);
+									} else {
+										this[i].setAttribute(&#39;class&#39;, newClass);
+									}
+									
+								} else {
+									
+									this[i].setAttribute(&#39;class&#39;, this[i].getAttribute(&#39;class&#39;) + &#39; &#39; + classes[j]);
+									
+								}
+							} else {
+								this[i].setAttribute(&#39;class&#39;, classes[j]);
+							}
+						} else {
+							this[i].setAttribute(&#39;class&#39;, classes[j]);
+						}
+						
+					}
+				}
+			}
+			return S; /*Continue Developing !!!*/
+		},
+		
+		/*///////////////////////////////
+		/*	Selects Siblings Or Index	/
+		/*	of The First Elements    	/
+		/*///////////////////////////////
+		
+		//Siblinger//
+		_siblinger_ = function(){
+			
+			var elems = [];
+			
+			for(let g=0; g&lt;arguments.length; g++){
+				
+				for(let h=0; h&lt;S.length; h++){
+					
+					var id = arguments[g];
+					
+					if(typeof id == &#39;number&#39;){ //Number Mode
+						
+						if(id &gt; 0){ //Next Sibling
+							
+							var sibEl    = S[h],
+								sib      = S[h],
+								num      = 0,
+								pushFlag = true;
+							
+							while(sib.nextSibling){
+								
+								if(num == id) break;
+								
+								sib = sib.nextSibling;
+								
+								if(sib.nodeName != &quot;#text&quot;){
+									sibEl = sib;
+									num++;
+								}
+								
+							}
+							
+							for(let i=0; i&lt;elems.length; i++) if(elems[i] == sibEl) pushFlag = false;
+							
+							if(pushFlag &amp;&amp; sibEl != S[h]) elems.push(sibEl);
+							
+						} else if(id &lt; 0){ //Previous Sibling
+							
+							var sibEl    = S[h],
+								sib      = S[h],
+								num      = 0,
+								pushFlag = true;
+							
+							id *= -1; //Because It&#39;s A Negative Number
+							
+							while(sib.previousSibling){
+								
+								if(num == id) break;
+								
+								sib = sib.previousSibling;
+								
+								if(sib.nodeName != &quot;#text&quot;){
+									sibEl = sib;
+									num++;
+								}
+								
+							}
+							
+							for(let i=0; i&lt;elems.length; i++) if(elems[i] == sibEl) pushFlag = false;
+							
+							if(pushFlag &amp;&amp; sibEl != S[h]) elems.push(sibEl);
+							
+						} else { //It Self
+							
+							var pushFlag = true;
+							
+							for(let i=0; i&lt;elems.length; i++) if(elems[i] == S[h]) pushFlag = false;
+							
+							if(pushFlag) elems.push(S[h]);
+							
+						}
+						
+					} else if(typeof id == &#39;string&#39;){ //String Mode
+						
+						var str = id.split(&#39; &#39;); //Make Selections Separate
+						
+						for(let k=0; k&lt;str.length; k++){
+							
+							if(str[k][0] == &#39;.&#39;){ //Select Them By ClassName
+								
+								var els = [],
+									sib = S[h].parentElement.childNodes;
+								str[k] = str[k].slice(1,str[k].length); //Remove The Class Dot
+								
+								for(let i=0; i&lt;sib.length; i++){
+									
+									if(sib[i] != S[h]){
+										
+										if(sib[i].nodeName != &#39;#text&#39;){
+										
+											if(sib[i].hasAttribute(&#39;class&#39;)){
+												
+												var cls = sib[i].getAttribute(&#39;class&#39;).split(&#39; &#39;);
+												
+												for(let j=0; j&lt;cls.length; j++){
+													
+													if(str[k] == cls[j]){
+														
+														var pushFlag = true;
+														
+														//Check If It Exists In Selected Elements Array
+														for(let l=0; l&lt;elems.length; l++) if(elems[l] == sib[i]) pushFlag = false;
+														
+														if(pushFlag) elems.push(sib[i]);
+														
+													}
+													
+												}
+												
+											}
+											
+										}
+										
+									}
+									
+								}
+								
+							} else if(str[k][0] == &#39;#&#39;){ //Select Them By IdName
+								
+								var els = [],
+									sib = S[h].parentElement.childNodes;
+								str[k] = str[k].slice(1,str[k].length); //Remove The Id Sharp
+								
+								for(let i=0; i&lt;sib.length; i++){
+									
+									if(sib[i] != S[h]){
+										
+										if(sib[i].nodeName != &#39;#text&#39;){
+										
+											if(sib[i].hasAttribute(&#39;id&#39;)){
+												
+												var sibId = sib[i].getAttribute(&#39;id&#39;);
+												
+												if(sibId == str[k]){
+													
+													var pushFlag = true;
+													
+													//Check If It Exists In Selected Elemes Array
+													for(let l=0; l&lt;elems.length; l++) if(elems[l] == sib[i]) pushFlag = false;
+													
+													if(pushFlag) elems.push(sib[i]);
+													
+												}
+												
+											}
+											
+										}
+										
+									}
+									
+								}
+								
+							} else {
+								
+								if(Number(str[k]).toString() != &#39;NaN&#39;){ //It Can Be A Number
+									
+									var idNum = str[k];
+									
+									if(idNum &gt; 0){ //Next Sibling
+										
+										var sibEl    = S[h],
+											sib      = S[h],
+											num      = 0,
+											pushFlag = true;
+										
+										while(sib.nextSibling){
+											
+											if(num == idNum){ break; }
+											
+											sib = sib.nextSibling;
+											
+											if(sib.nodeName != &quot;#text&quot;){
+												sibEl = sib;
+												num++;
+											}
+											
+										}
+										
+										for(let i=0; i&lt;elems.length; i++) if(elems[i] == sibEl) pushFlag = false;
+										
+										if(pushFlag &amp;&amp; sibEl != S[h]) elems.push(sibEl);
+										
+									} else if(idNum &lt; 0){ //Previous Sibling
+										
+										var sibEl    = S[h],
+											sib      = S[h],
+											num      = 0,
+											pushFlag = true;
+										
+										idNum *= -1; //Because It&#39;s A Negative Number
+										
+										while(sib.previousSibling){
+											
+											if(num == idNum){ break; }
+											
+											sib = sib.previousSibling;
+											
+											if(sib.nodeName != &quot;#text&quot;){
+												sibEl = sib;
+												num++;
+											}
+											
+										}
+										
+										for(let i=0; i&lt;elems.length; i++) if(elems[i] == sibEl) pushFlag = false;
+										
+										if(pushFlag &amp;&amp; sibEl != S[h]) elems.push(sibEl);
+										
+									} else { //It Self
+										
+										var pushFlag = true;
+										
+										for(let i=0; i&lt;elems.length; i++) if(elems[i] == S[h]) pushFlag = false;
+										
+										if(pushFlag) elems.push(S[h]);
+										
+									}
+											
+								} else { //It Can&#39;T Be A Number; Therefore, You Should Select Them By Tag Name
+									
+									str[k] = str[k].toUpperCase() //Make It UpperCase Because Of Node Names Are Capital
+									
+									var sib = S[h].parentNode.childNodes;
+									
+									for(let i=0; i&lt;sib.length; i++){
+										
+										if(S[h] != sib[i] &amp;&amp; sib[i].nodeName == str[k]){
+											
+											var pushFlag = true;
+											
+											for(let j=0; j&lt;elems.length; j++) if(elems[j] == sib[i]) pushFlag = false;
+											
+											if(pushFlag) elems.push(sib[i]);
+											
+										}
+										
+									}
+									
+								}
+								
+							}
+							
+						}
+						
+					} else { //Else If TypeOf Arguments Didn&#39;t Number/String
+						
+						window.javaSnake.error(&quot;javaSnake: Put Number/String Value In Arguments Of siblinger() Function !&quot;);
+						
+					}
+					
+				}
+					
+			}
+			
+			S.splice(0,this.length);
+			
+			for(let i=0; i&lt;elems.length; i++) S.push(elems[i]);
+			
+			return S;/*Continue Developing !*/
+			
+		}, //End Of Siblinger Function//
+		_prvSib_ = function(){
+			
+			var elems = [];
+			
+			for(let i=0; i&lt;S.length; i++)
+				if(S[i].previousSibling != undefined)
+					if(S[i].previousSibling.nodeName != &quot;#text&quot;)
+						elems.push(S[i].previousSibling);
+					else
+						if(S[i].previousSibling.previousSibling != undefined)
+							elems.push(S[i].previousSibling.previousSibling);
+			
+			S.splice(0,this.length);
+			
+			for(let i=0; i&lt;elems.length; i++) S.push(elems[i]);
+			
+			return S;/*Continue Developing !*/
+			
+		},
+		_nxtSib_ = function(){
+			
+			var elems = [];
+			
+			for(let i=0; i&lt;S.length; i++){
+				if(S[i].nextSibling != undefined)
+					if(S[i].nextSibling.nodeName != &quot;#text&quot;)
+						elems.push(S[i].nextSibling);
+					else
+						if(S[i].nextSibling.nextSibling != undefined)
+							elems.push(S[i].nextSibling.nextSibling);
+			}
+			
+			S.splice(0,this.length);
+			
+			for(let i=0; i&lt;elems.length; i++) S.push(elems[i]);
+			
+			return S;/*Continue Developing !*/
+			
+		},
+		_child_ = function(num){
+			
+			if(typeof num == &#39;number&#39;){
+				
+				var elems = [];
+				
+				for(let i=0; i&lt;S.length; i++)
+					if(S[i].childNodes[num].nodeName != &quot;#text&quot; &amp;&amp; S[i].childNodes.length != 0)
+						elems.push(S[i].childNodes[num]);
+					else
+						window.javaSnake.warning(&quot;javaSnake: Some Of Child Nodes Was Not Selected, Because They Was &#39;textNode&#39; !\nOR -&gt; There Is Not Any ChildNodes !&quot;);
+				
+				S.splice(0,this.length);
+				
+				for(let i=0; i&lt;elems.length; i++) S.push(elems[i]);
+				
+				return S;/*Continue Developing !*/
+				
+			} else if(typeof num == &#39;string&#39; &amp;&amp; typeof Number(num) == &#39;number&#39;){
+				
+				var elems = [];
+				
+				for(let i=0; i&lt;S.length; i++)
+					if(S[i].childNode[Number(num)].nodeName != &quot;#text&quot; &amp;&amp; S[i].childNodes.length != 0)
+						elems.push(S[i].childNodes[Number(num)]);
+					else
+						window.javaSnake.warning(&quot;javaSnake: Some Of Child Nodes Was Not Selected, Because They Was &#39;textNode&#39; !\nOR -&gt; There Is Not Any ChildNodes !&quot;);
+				
+				S.splice(0,this.length);
+				
+				for(let i=0; i&lt;elems.length; i++) S.push(elems[i]);
+				
+				return S;/*Continue Developing !*/
+				
+			} else {
+				
+				window.javaSnake.error(&quot;javaSnake: Put A Number Value In Argument Of child() Function !&quot;);
+				
+			}
+			
+		},
+		_parent_ = function(){
+			
+			var elems = [];
+			
+			for(let i=0; i&lt;S.length; i++){
+				
+				var exists = false;
+				
+				for(let j=0; j&lt;elems.length; j++){
+					
+					if(elems[j] == S[i].parentElement) exists = true;
+					
+				}
+				
+				if(!exists) elems.push(S[i].parentElement);
+				
+			}
+			
+			S.splice(0,this.length);
+			
+			for(let i=0; i&lt;elems.length; i++) S.push(elems[i]);
+			
+			return S;/*Continue Developing !*/
+			
+		},
+		_fullS_ = function(){
+		/*
+		 * You Can Toggle Full Screen Using This Function
+		 */
+			if(
+				document.fullscreenElement ||
+				document.webkitFullscreenElement ||
+				document.mozFullScreenElement ||
+				document.msFullscreenElement
+			  ) {
+				if(document.exitFullscreen) {
+					document.exitFullscreen();
+				} else if(document.mozCancelFullScreen) {
+					document.mozCancelFullScreen();
+				} else if(document.webkitExitFullscreen) {
+					document.webkitExitFullscreen();
+				} else if(document.msExitFullscreen) {
+					document.msExitFullscreen();
+				}
+			  } else {
+				if(this[0].requestFullscreen) {
+					this[0].requestFullscreen();
+				} else if(this[0].mozRequestFullScreen) {
+					this[0].mozRequestFullScreen();
+				} else if(this[0].webkitRequestFullscreen) {
+					this[0].webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+				} else if(this[0].msRequestFullscreen) {
+					this[0].msRequestFullscreen();
+				}
+			}
+			return S; /*Continue Developing !!!*/
+		},
+		_indexer_ = function (index){
+			if(typeof index == &#39;number&#39;){ //In Number Mode
+				
+				if(this.length &gt; 1){
+					
+					if(index &gt;= this.length-1){
+						
+						S.splice(0,this.length-1);
+						
+					} else if(index &lt;= 0){
+						
+						S.splice(1,this.length);
+						
+					} else {
+						
+						S.splice(index+1,(this.length-1)-index);
+						S.splice(0,index);
+						
+					}
+				}
+				
+			} else if(typeof index == &#39;string&#39;){ //In String Mode
+				
+				if(this.length &gt; 1){
+					
+					index = index.toLowerCase();
+					
+					switch (index){
+						case &quot;$odd&quot;:
+							
+							var temp = [];
+							for(let i=0; i&lt;S.length; i++){
+								
+								if(i == 0 || i%2 == 0){
+									temp.push(S[i]);
+								}
+								
+							}
+							S.splice(0,this.length);
+							for(let i=0; i&lt;temp.length; i++){ S.push(temp[i]) }
+							
+						break;
+						case &quot;$even&quot;:
+							
+							var temp = [];
+							for(let i=0; i&lt;S.length; i++){
+								
+								if(i == 1 || i%2 != 0){
+									temp.push(S[i]);
+								}
+								
+							}
+							S.splice(0,this.length);
+							for(let i=0; i&lt;temp.length; i++){ S.push(temp[i]) }
+							
+						break;
+						case &quot;$first&quot;:
+							S.splice(1,this.length);
+						break;
+						case &quot;$last&quot;:
+							S.splice(0,this.length-1);
+						break;
+					}
+					
+				}
+				
+			}
+			return S;
+		},
+		_S_ = window.javaSnake,
+		_pushElem_ = function(){
+			
+			for(let i=0; i&lt;arguments.length; i++){
+				
+				var stack = arguments[i];
+				
+				if(typeof stack == &#39;string&#39;){ //General String
+					
+					var temp = document.querySelectorAll(stack);
+					for(let j=0; j&lt;temp.length; j++){
+						S.push(temp[j]);
+					}
+					
+				} else if(typeof stack == &#39;object&#39;){
+					
+					if(stack.ARRAY_TYPE == &quot;Snake.js&quot;){
+						
+						for(let j=0; j&lt;stack.length; j++){
+							
+							S.push(stack[j]);
+							
+						}
+						
+					} else {
+						
+						S.push(stack);
+						
+					}
+					
+				}
+				
+			}
+			
+			return S; //Continue Developing
+		},
+		_scrlTop_ = function(scrollSize){
+			
+			if(scrollSize === undefined){
+				
+				if(S[0] != window) return S[0].scrollTop;
+				else return S[0].pageYOffset;
+				
+			} else if(typeof scrollSize == &#39;number&#39;){
+				
+				for(let i=0; i&lt;S.length; i++){
+					
+					S[i].scrollTop = scrollSize;
+					
+				}
+				return S; //Continue Developing
+			}
+			
+		},
+		_scrlLeft_ = function(scrollSize){
+			
+			if(scrollSize === undefined){
+				
+				if(S[0] != window) return S[0].scrollLeft;
+				else return S[0].pageXOffset;
+				
+			} else if(typeof scrollSize == &#39;number&#39;){
+				
+				for(let i=0; i&lt;S.length; i++){
+					
+					S[i].scrollLeft = scrollSize;
+					
+				}
+				return S; //Continue Developing
+			}
+			
+		},
+		_scrlWidth_ = function(){
+			
+			if(S[0] != window) return S[0].scrollWidth;
+			else return S[0].innerWidth;
+			
+		},
+		_scrlHeight_ = function(){
+			
+			if(S[0] != window) return S[0].scrollHeight;
+			else return S[0].innerHeight;
+			
+		},
+		_onScrollArrives_ = function(func,before){
+			
+			if(before === undefined || typeof before != &#39;boolean&#39;) before = false;
+			
+			for(let i=0; i&lt;S.length; i++){
+				
+				window.javaSnake.onScrollArrives(S[i],func,before);
+				
+			}
+			
+			return S;/*Continue Developing !*/
+			
+		},
+		_onScrollArrivesOnce_ = function(func,before){
+			
+			if(before === undefined || typeof before != &#39;boolean&#39;) before = false;
+			
+			for(let i=0; i&lt;S.length; i++){
+				
+				window.javaSnake.onScrollArrivesOnce(S[i],func,before);
+				
+			}
+			
+			return S;/*Continue Developing !*/
+			
+		},
+		_scrlToX_ = function(num,speed,delay){
+			
+			for(let i=0; i&lt;S.length; i++){
+				
+				if(S[i] != window &amp;&amp; S[i] != document){
+					
+					window.javaSnake.scrlToX_elem(S[i],num,speed,delay);
+					
+				} else {
+					
+					window.javaSnake.scrlToX(num,speed,delay);
+					
+				}
+				
+			}
+			
+			return S;/*Continue Developing !*/
+			
+		},
+		_scrlToY_ = function(num,speed,delay){
+			
+			for(let i=0; i&lt;S.length; i++){
+				
+				if(S[i] != window &amp;&amp; S[i] != document){
+					
+					window.javaSnake.scrlToY_elem(S[i],num,speed,delay);
+					
+				} else {
+					
+					window.javaSnake.scrlToY(num,speed,delay);
+					
+				}
+				
+			}
+			
+			return S;/*Continue Developing !*/
+			
+		},
+		_scrlToXY_ = function(num,speed,delay){
+			
+			for(let i=0; i&lt;S.length; i++){
+				
+				if(S[i] != window &amp;&amp; S[i] != document){
+					
+					window.javaSnake.scrlToX_elem(S[i],num,speed,delay);
+					window.javaSnake.scrlToY_elem(S[i],num,speed,delay);
+					
+				} else {
+					
+					window.javaSnake.scrlToX(num,speed,delay);
+					window.javaSnake.scrlToY(num,speed,delay);
+					
+				}
+				
+			}
+			
+			return S;/*Continue Developing !*/
+			
+		},
+		_property_ = function(){
+			
+			var rtrn = null;
+			for(let i=0; i&lt;S.length; i++){
+				for(let j=0; j&lt;arguments.length; j++){
+					var prop = arguments[j];
+					switch(typeof prop){
+						case &#39;string&#39;:
+							
+							if(typeof arguments[j+1] == &#39;string&#39;){
+								
+								if(prop in S[i]){
+									S[i][prop] = arguments[j+1];
+								}
+								j++;
+								
+							} else {
+								if(prop in S[0]){
+									rtrn = S[0][prop];
+								}
+							}
+							
+						break;
+						case &#39;object&#39;:
+							
+							for(let p in prop){
+								if(p in S[i]){ S[i][p] = prop[p]; }
+							}
+							
+						break;
+					}
+				}
+			}
+			return rtrn != null? rtrn:S/*Continue Developing*/;
+			
+		},
+		_outerWidth_ = function(marginBool){
+			
+			var ouWt = 0;
+			
+			if(S[0] != window){
+				
+				ouWt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;border-width&quot;))[0]) * 2;
+				ouWt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;padding-left&quot;))[0]);
+				ouWt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;padding-right&quot;))[0]);
+				ouWt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;width&quot;))[0]);
+				
+				if(marginBool !== undefined){
+					if(typeof marginBool == &#39;boolean&#39;){
+						
+						if(marginBool){
+							ouWt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;margin-left&quot;))[0]);
+							ouWt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;margin-right&quot;))[0]);
+						}
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake: Put Boolean Value In The Argument Of outerWidth() Function !&quot;);
+						
+					}
+				}
+				
+				return ouWt;
+				
+			} else {
+				
+				return window.outerWidth;
+				
+			}
+			
+		},
+		_outerHeight_ = function(marginBool){
+			
+			var ouHt = 0;
+			
+			if(S[0] != window){
+				
+				ouHt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;border-width&quot;))[0]) * 2;
+				ouHt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;padding-top&quot;))[0]);
+				ouHt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;padding-bottom&quot;))[0]);
+				ouHt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;height&quot;))[0]);
+				
+				if(marginBool !== undefined){
+					if(typeof marginBool == &#39;boolean&#39;){
+						
+						if(marginBool){
+							ouHt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;margin-top&quot;))[0]);
+							ouHt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;margin-bottom&quot;))[0]);
+						}
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake: Put Boolean Value In The Argument Of outerHeight() Function !&quot;);
+						
+					}
+				}
+				
+				return ouHt;
+				
+			} else {
+				
+				return window.outerHeight;
+				
+			}
+			
+		},
+		_innerWidth_ = function(){
+			
+			var inWt = 0;
+			
+			if(S[0] != window){
+				
+				inWt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;padding-left&quot;))[0]);
+				inWt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;padding-right&quot;))[0]);
+				inWt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;width&quot;))[0]);
+				
+				return inWt;
+				
+			} else {
+				
+				return window.innerWidth;
+				
+			}
+			
+		},
+		_innerHeight_ = function(){
+			
+			var inHt = 0;
+			
+			if(S[0] != window){
+				
+				inHt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;padding-top&quot;))[0]);
+				inHt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;padding-bottom&quot;))[0]);
+				inHt += window.javaSnake.isNumUndefined(window.javaSnake.styleToNum(window.getComputedStyle(S[0],null).getPropertyValue(&quot;height&quot;))[0]);
+				
+				return inHt;
+				
+			} else {
+				
+				return window.innerHeight;
+				
+			}
+			
+		},
+		_rev_ = function(){
+			
+			S = window.javaSnake.rev(S);
+			return S;
+			
+		},
+		_toggleAttr_ = function(attrName, val1, val2){
+			
+			if(typeof attrName == &#39;string&#39;){
+			
+				if(val2 === undefined){//Toggle One Value
+					
+					for(let i=0; i&lt;S.length; i++){
+						
+						if(S[i].getAttribute(attrName) == val1){
+							
+							S[i].setAttribute(attrName, &quot;&quot;);
+							
+						} else {
+							
+							S[i].setAttribute(attrName, val1);
+							
+						}
+						
+					}
+					
+				} else {//Toggle Two Values
+					
+					for(let i=0; i&lt;S.length; i++){
+						
+						if(S[i].getAttribute(attrName) == val1){
+							
+							S[i].setAttribute(attrName, val2);
+							
+						} else if(S[i].getAttribute(attrName) == val2){
+							
+							S[i].setAttribute(attrName, val1);
+							
+						} else {
+							
+							S[i].setAttribute(attrName, val1);
+							
+						}
+						
+					}
+					
+				}
+				
+			} else {//Non-String Value
+				
+				window.javaSnake.error(&quot;javaSnake: Put String Value In The First Argument Of toggleAttr() Function !&quot;);
+				
+			}
+			
+			return S;/*Continue Developing !*/
+			
+		},
+		_realStyle_ = function(property, pseudoElt){
+			
+			return window.javaSnake.realStyle(S[0],property,pseudoElt);
+			
+		},
+		_TEST_ = function(){
+			
+			// You Can Also Test Your Functions Here To
+			// Develop This Library !
+			
+		};
+		//End Of Function Variables
+		
+		
+		
+		
+		//////////////////////////////////////////////////////////////////////////////////////////
+		//                                 LIST OF PROPERTIES                                   //
+		//////////////////////////////////////////////////////////////////////////////////////////
+		S.ARRAY_TYPE                     = &quot;Snake.js&quot;;
+		//////////////////////////////////////////////////////////////////////////////////////////
+		//                                  LIST OF FUNCTIONS                                   //
+		//////////////////////////////////////////////////////////////////////////////////////////
+		S.c$$                            = _c$$_;
+		/*** A High Futured CSS Controler ***/
+		S.css                            = _css_;
+		/*** A Light CSS Controler And Returner ***/
+		S.remove                         = _remove_;
+		/*** It Can Remove DOM Elements ***/
+		S.appendChild                    = _appendChild_;
+		/*** It Can Append Child Elements To Some Parent Elements ***/
+		S.before                         = _before_;
+		/*** It Can Insert Element Before Some DOM Elements ***/
+		S.after                          = _after_;
+		/*** It Can Insert Element After Some DOM Elements ***/
+		S.indexOfThese                   = _indexOfThese_;
+		/*** It Returns An Array Of Selected Elements Indexes ***/
+		S.html                           = _html_;
+		/*** It Gets Or Return Html Of The Selected Elements ***/
+		S.text                           = _text_;
+		/*** It Gets Or Return Text Of The Selected Elements ***/
+		S.val                            = _val_;
+		/*** It Gets Or Return Value Of The Selected Elements ***/
+		S.attr                           = _attr_;
+		/*** It Gets Or Return Attributes Of The Selected Elements ***/
+		S.offset                         = _offset_;
+		/*** It Gets Or Return Offsets Of The First Selected Elements ***/
+		S.each                           = _each_;
+		/*** It Does A Same Function For All Of Selected Elements ***/
+		S.get                            = _get_;
+		/*** It Can Return An Item Of Selected Elements ***/
+		//////////////////////////////////
+		//     |                  |     //
+		//     |   Mouse Events   |     //
+		//     v                  v     //
+		//////////////////////////////////
+		S.onMouseDown                    = _onMouseDown_;
+		S.onClick                        = _onClick_;
+		S.onMouseUp                      = _onMouseUp_;
+		S.onDblClick                     = _onDblClick_;
+		S.onMouseOver                    = _onMouseOver_;
+		S.onMouseMove                    = _onMouseMove_;
+		S.onMouseOut                     = _onMouseOut_;
+		//////////////////////////////////
+		//     |                  |     //
+		//     |    DOM Events    |     //
+		//     v                  v     //
+		//////////////////////////////////
+		S.onAbort                        = _onAbort_;
+		S.onBlur                         = _onBlur_;
+		S.onChange                       = _onChange_;
+		S.onActivate                     = _onActivate_;
+		S.onAttributeNameChanged         = _onAttributeNameChanged_;
+		S.onAttributeModified            = _onAttributeModified_;
+		S.onCharacterDataModified        = _onCharacterDataModified_;
+		S.onElementNameChanged           = _onElementNameChanged_;
+		S.onFocusIn                      = _onFocusIn_;
+		S.onFocusOut                     = _onFocusOut_;
+		S.onNodeInserted                 = _onNodeInserted_;
+		S.onNodeInsertedIntoDocument     = _onNodeInsertedIntoDocument_;
+		S.onNodeRemoved                  = _onNodeRemoved_;
+		S.onNodeRemovedFromDocument      = _onNodeRemovedFromDocument_;
+		S.onSubtreeModified              = _onSubtreeModified_;
+		S.onError                        = _onError_;
+		S.onFocus                        = _onFocus_;
+		S.onLoad                         = _onLoad_;
+		S.onOffline                      = _onOffline_;
+		S.onOnline                       = _onOnline_;
+		S.onReset                        = _onReset_;
+		S.onResize                       = _onResize_;
+		S.onScroll                       = _onScroll_;
+		S.onSelect                       = _onSelect_;
+		S.onSubmit                       = _onSubmit_;
+		S.onTextInput                    = _onTextInput_;
+		S.onUnload                       = _onUnload_;
+		//////////////////////////////////
+		//    |                    |    //
+		//    |  #KeyBoard Events  |    //
+		//    v                    v    //
+		//////////////////////////////////
+		S.onKeyDown                      = _onKeyDown_;
+		S.onKeyUp                        = _onKeyUp_;
+		S.onKeyPress                     = _onKeyPress_;
+		//////////////////////////////////
+		S.on                             = _on_;
+		/*** Custome Events That You Can Enter Them Like addEventListener Function ***/
+		S.addClass                       = _addClass_;
+		/*** It Can Add Classes To The Elements ***/
+		S.removeClass                    = _removeClass_;
+		/*** It Can Remove Classes Of The Elements ***/
+		S.toggleClass                    = _toggleClass_;
+		/*** It Can Toggle Classes Of The Elements ***/
+		S.siblinger                      = _siblinger_;
+		/*** It Can Return Siblings Of Matched Elements By TagName, ID, Class And The Number ***/
+		S.prvSib                         = _prvSib_;
+		/*** It Can Select Previous Siblings Of Matched Elements ***/
+		S.nxtSib                         = _nxtSib_;
+		/*** It Can Select Next Siblings Of Matched Elements ***/
+		S.child                          = _child_;
+		/*** It Can Select A Child Node By Number ***/
+		S.parent                         = _parent_;
+		/*** It Can Select A Parent Elements Of Matched Elements ***/
+		S.fullS                          = _fullS_;
+		/*** It Can Toggle FullScreen Of The First Element ***/
+		S.indexer                        = _indexer_;
+		/*** It Can Choose One Or Multiple Elements From Selected Elements ***/
+		S.S                              = _S_;
+		/*** It Can ReSelect Elements ***/
+		S.pushElem                       = _pushElem_;
+		/*** It Can Push Elements To The Range Of Selection By Objects, Strings, &amp; Arrays ***/
+		//////////////////////////////////
+		//    |                    |    //
+		//    |  ScrollProperties  |    //
+		//    v                    v    //
+		//////////////////////////////////
+		S.scrlTop                        = _scrlTop_;
+		S.scrlLeft                       = _scrlLeft_;
+		S.scrlWidth                      = _scrlWidth_;
+		S.scrlHeight                     = _scrlHeight_;
+		S.onScrollArrives                = _onScrollArrives_;
+		S.onScrollArrivesOnce            = _onScrollArrivesOnce_;
+		S.scrlToX                        = _scrlToX_;
+		S.scrlToY                        = _scrlToY_;
+		S.scrlToXY                       = _scrlToXY_;
+		//////////////////////////////////
+		S.property                       = _property_;
+		S.outerWidth                     = _outerWidth_;
+		S.outerHeight                    = _outerHeight_;
+		S.innerWidth                     = _innerWidth_;
+		S.innerHeight                    = _innerHeight_;
+		S.rev                            = _rev_;
+		S.toggleAttr                     = _toggleAttr_;
+		//////////////////////////////////
+		S.realStyle                      = _realStyle_;
+		S.TEST                           = _TEST_; //For Testing New Functions
+		//////////////////////////////////////////////////////////////////////////////////////////
+		//======================================================================================//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		//Note That Ajax Functions Are In Ajax Mode.
+		/*( It Means When You Didn&#39;t Put Any Ajax Object/Command In The &#39;SELECTOR&#39;() Function,
+			You Will Not Be Able To Access And Use Ajax Functions )*/
+		
+		window.javaSnake.selected = S;
+		
+	return S;/*End Of javaSnake() Selector Function*/}
+	/*
+	 *	Pure/Inner Helping Functions
+	 */
+	function indexOfElement_(element){
+	/*
+	 *	Function For Getting Index Of An Element
+	 */
+		var indexNum = 0;
+		var temp = null;
+		if(element.previousSibling){
+			temp = element.previousSibling;
+			indexNum += 1;
+			while(temp.previousSibling){
+				temp = temp.previousSibling;
+				indexNum += 1;
+			}
+		}
+		return indexNum;
+	}
+	function readyAjax_(){
+	/*
+	 *	Function For Ready Ajax Object
+	 */
+	
+		try {
+			
+			return new XMLHttpRequest();
+			
+		} catch(e) {
+			
+			try {
+				
+				return new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;);
+				
+			} catch(e) {
+				
+				try {
+					
+					return new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+					
+				} catch(e) {
+					
+					return &quot;A newer browser is needed !&quot;;
+					
+				}
+				
+			}
+			
+		}
+		
+	}//End Of Ajax Function
+	function styleToJs_(property){
+	/*
+	 *	Function For Convert CSS Property Name To JavaScript Style Property Name
+	 */
+		property = property.toLowerCase();
+		if(property != &quot;float&quot;){
+			return property.replace(/[\-][a-z]/gm,function(match){ return match[1].toUpperCase(); });
+		}
+		return &quot;cssFloat&quot;;
+	}
+	function jsToStyle_(property){
+	/*
+	 *	Function For Convert JavaScript Style Property Name To CSS Property Name
+	 */
+		if(property != &quot;cssFloat&quot;){
+			return property.replace(/[A-Z]/gm,function(match){ return &quot;-&quot; + match.toLowerCase(); });
+		}
+		return &quot;float&quot;;
+	}
+	
+}(window, document));//End Of javaSnake In Function Mode
+
+//javaSnake In Object Mode
+window.javaSnake.creator     = &quot;SMRSAN&quot;;
+window.javaSnake.weblog      = &quot;http://mreza-7.blogfa.com/&quot;;
+window.javaSnake.website     = &quot;http://www.javaSnake.com/&quot;;
+window.javaSnake.version     = &quot;v0.0.1&quot;;
+window.javaSnake.publishYear = &quot;1395 | 2016&quot;;
+window.javaSnake.noConflict  = function(){ return window.javaSnake; };
+window.S                     = window.javaSnake;
+window.javaSnake.javaSnake   = window.javaSnake;
+window.javaSnake.S           = window.javaSnake;
+window.javaSnake.error       = function(message){ throw Error(message) };
+window.javaSnake.log         = function(message){ console.log(message) };
+window.javaSnake.warning     = function(message){ console.warn(message)};
+window.javaSnake.newArr      = function(){ return []; };
+window.javaSnake.newObj      = function(){ return {}; };
+window.javaSnake.write       = function(markup){ document.write(markup) }
+window.javaSnake.writeLine   = function(markup){ document.writeln(markup) }
+window.javaSnake.crtElem     = function(tagName){ return document.createElement(tagName) }
+window.javaSnake.alert       = function(message){ window.alert(message) };
+window.javaSnake.prompt      = function(message){ return window.prompt(message) };
+window.javaSnake.confirm     = function(message){ return window.confirm(message) };
+window.javaSnake.die         = function(){ window.javaSnake = undefined;window.S = undefined };
+window.javaSnake.doc = document;
+window.javaSnake.win = window;
+window.javaSnake.addEvent    = function(eFunc, eType, element, useCapture){
+	
+	if(element === undefined){ element = window }
+	if(eType   === undefined){ eType   = &quot;load&quot; }
+	
+	if(document.addEventListener){
+		
+		if(typeof eType == &quot;load&quot;){
+			
+			if(typeof window.onload == &quot;function&quot;){
+				
+				var existingOnload = window.onload;
+				window.onload = function(){
+					existingOnload();
+					eFunc();
+				}
+				
+			} else {
+				
+				window.onload = eFunc;
+				
+			}
+			
+		} else {
+			
+			element.addEventListener(eType, eFunc, useCapture);
+			
+		}
+		
+	} else if(document.attachEvent){ //Old IEs
+		
+		if(typeof eType == &quot;load&quot;){
+			
+			if(typeof window.onload == &quot;function&quot;){
+				
+				var existingOnload = window.onload;
+				window.onload = function(){
+					existingOnload();
+					eFunc();
+				}
+				
+			} else {
+				
+				window.onload = eFunc;
+				
+			}
+			
+		} else {
+			
+			element.attachEvent(&quot;on&quot; + eType, eFunc, useCapture);
+			
+		}
+		
+	}
+	
+};
+window.javaSnake.removeEvent = function(eFunc, eType, element){
+	
+	if(element === undefined){ element = window }
+	if(eType   === undefined){ eType   = &quot;load&quot; }
+	
+	if(document.removeEventListener){
+		
+		element.removeEventListener(eType, eFunc, false);
+		
+	} else if(document.detachEvent){ //Old IEs
+		
+		element.detachEvent(&quot;on&quot; + eType, eFunc);
+		
+	}
+	
+};
+window.javaSnake.gelId     = function(id){
+	
+	if(typeof id == &#39;string&#39;){
+		
+		return document.getElementById(id)
+		
+	}
+	javaSnake.error(&quot;javaSnake: Enter String Value In getElId() Function !&quot;);
+	
+};
+window.javaSnake.gelClass  = function(Class){
+	
+	if(typeof Class == &#39;string&#39;){
+		
+		return document.getElementsByClassName(Class)
+		
+	}
+	javaSnake.error(&quot;javaSnake: Enter String Value In getElCls() Function !&quot;);
+	
+};
+window.javaSnake.gelTag  = function(tagName){
+	
+	if(typeof tagName == &#39;string&#39;){
+		
+		return document.getElementsByTagName(tagName)
+		
+	}
+	javaSnake.error(&quot;javaSnake: Enter String Value In getElTag() Function !&quot;);
+	
+};
+window.javaSnake.gelTagNs  = function(nameSpace ,tagName){
+	
+	if(typeof tagName == &#39;string&#39; &amp;&amp; typeof nameSpace == &#39;string&#39;){
+		
+		return document.getElementsByTagNameNS(nameSpace ,tagName)
+		
+	}
+	javaSnake.error(&quot;javaSnake: Enter String Value In getElTagNs() Function !&quot;);
+	
+};
+window.javaSnake.gelName  = function(name){
+	
+	if(typeof name == &#39;string&#39;){
+		
+		return document.getElementsByName(name)
+		
+	}
+	javaSnake.error(&quot;javaSnake: Enter String Value In getElName() Function !&quot;);
+	
+};
+window.javaSnake.remove   = function(element){
+	
+	if(typeof element == &#39;object&#39;){
+		
+		try {
+			
+			element.parentElement.removeChild(element);
+			
+		} catch(event) {
+			
+			javaSnake.error(&quot;javaSnake: Enter DOMObject Value In remove() Function !&quot;);
+			
+		}
+		
+	} else {
+		
+		javaSnake.error(&quot;javaSnake: Enter DOMObject Value In remove() Function !&quot;);
+		
+	}
+	
+};
+window.javaSnake.setCookie = function(cookObj){
+	
+	if(typeof cookObj == &#39;object&#39;){
+		
+		var name    = &quot;&quot;,   //
+			value   = &quot;&quot;,   //
+			expires = &quot;&quot;,   //Cookie Loaders
+			path    = &quot;&quot;,   //
+			domain  = &quot;&quot;,   //
+			secure  = false;//
+		
+		for(let val in cookObj){
+			switch(val){
+				case &quot;name&quot;:
+					if(typeof cookObj[val] == &#39;string&#39;) name = cookObj[val].trim();
+					else window.javaSnake.error(&quot;javaSnake: Enter String Value For &#39;name&#39; of setCookie() Function !&quot;);
+				break;
+				case &quot;value&quot;:
+					if(typeof cookObj[val] == &#39;string&#39;) value = cookObj[val];
+					else window.javaSnake.error(&quot;javaSnake: Enter String Value For &#39;value&#39; of setCookie() Function !&quot;);
+				break;
+				case &quot;expires&quot;:
+					if(typeof cookObj[val] == &#39;string&#39;) expires = &quot;;expires=&quot; + cookObj[val];
+					else window.javaSnake.error(&quot;javaSnake: Enter String Value For &#39;expires&#39; of setCookie() Function !&quot;);
+				break;
+				case &quot;path&quot;:
+					if(typeof cookObj[val] == &#39;string&#39;) path = &quot;;path=&quot; + cookObj[val];
+					else window.javaSnake.error(&quot;javaSnake: Enter String Value For &#39;path&#39; of setCookie() Function !&quot;);
+				break;
+				case &quot;domain&quot;:
+					if(typeof cookObj[val] == &#39;string&#39;) domain = &quot;;domain=&quot; + cookObj[val];
+					else window.javaSnake.error(&quot;javaSnake: Enter String Value For &#39;domain&#39; of setCookie() Function !&quot;);
+				break;
+				case &quot;secure&quot;:
+					if(typeof cookObj[val] == &#39;boolean&#39;) secure = !cookObj ? &quot;&quot;:&quot;;secure&quot;;
+					else window.javaSnake.error(&quot;javaSnake: Enter Boolean Value For &#39;secure&#39; of setCookie() Function !&quot;);
+				break;
+				default:
+					window.javaSnake.error(&quot;javaSnake: What The **** !\nWhat&#39;s This: &quot; + val + &quot;\nYour Mistake In setCookie() Function !!!&quot;);
+				break;
+			}
+		}
+		if(typeof secure == &#39;boolean&#39;) secure = &quot;&quot;;
+		if(name != &quot;&quot; &amp;&amp; value != undefined){
+			
+			document.cookie = name + &quot;=&quot; + value + expires + path + domain + secure;
+			
+		} else {
+			
+			window.javaSnake.error(&quot;javaSnake: There Isn&#39;t Any Name Or Value For setCookie() Function !&quot;);
+			
+		}
+	} else {
+		
+		window.javaSnake.error(&quot;javaSnake: Enter Object Value In setCookie() Function !&quot;);
+		
+	}
+	
+}
+window.javaSnake.getCookie = function(cookName){
+	
+	var cArray  = [] //Array
+	,   cook    = {} //Object
+	,   parts   = document.cookie.split(&quot;;&quot;);
+	
+	for(let i=0; i&lt;parts.length; i++){
+		
+		var nameValue = parts[i].split(&quot;=&quot;);
+		
+		switch(nameValue[0]){
+			case &quot;expires&quot;:
+				
+				cook.expires = nameValue[1];
+				
+			break;
+			case &quot;path&quot;:
+				
+				cook.path = nameValue[1];
+				
+			break;
+			case &quot;domain&quot;:
+				
+				cook.domain = nameValue[1];
+				
+			break;
+			case &quot;secrue&quot;:
+				
+				cook.secure = true;
+				
+			break;
+			default:
+				
+				if(cook.name){
+					
+					cArray.push(cook);  
+					cook = {};//Reset cook For Insert New Cookie
+					
+				}
+				cook.name  = nameValue[0].trim();//Do Not Use White Spaces !
+				cook.value = nameValue[1];
+				
+			break;
+		}
+	}
+	if(cook.name){ cArray.push(cook); }
+	
+	if(cookName === undefined){
+		
+		return cArray; //Return Cookie
+		
+	} else {
+		
+		if(typeof cookName == &#39;string&#39;){
+			
+			for(let i=0; i&lt;cArray.length; i++){
+				
+				if(cArray[i][&quot;name&quot;].trim() == cookName.trim()){
+					
+					return cArray[i]; //Cookie Was Found In The List !
+					
+				}
+				
+			}
+			
+		} else {
+			
+			window.javaSnake.error(&quot;javaSnake: Enter String Value In getCookie() Function !&quot;);
+			
+		}
+		
+	}
+	window.javaSnake.error(&quot;javaSnake: The cookName That You Entered, Was Not Found !&quot;);
+};
+window.javaSnake.remCookie = function(cookName){
+	if(typeof cookName == &#39;string&#39;){
+		
+		var date = new Date();
+			
+		date.setTime(date.getTime()-60);
+		
+		var expireDate = date.toGMTString();
+		
+		window.javaSnake.setCookie({
+			name    : cookName,
+			value   : &quot;&quot;,
+			expires : expireDate
+		});
+		
+	} else {
+		
+		window.javaSnake.error(&quot;javaSnake: Enter String Value In remCookie() Function !&quot;);
+		
+	}
+};
+window.javaSnake.addProp = function(name,func){
+	
+	if(typeof func == &#39;function&#39;){
+		
+		if(typeof name == &#39;string&#39;){
+			
+			if(name in window.javaSnake){
+				
+				window.javaSnake.error(&quot;javaSnake: This Function Name: &quot; + name + &quot;\nIs Already Exists In javaSnake Functions !&quot;);
+				
+			} else {
+				
+				window.javaSnake[name] = func;
+				
+			}
+			
+		} else {
+			
+			window.javaSnake.error(&quot;javaSnake: Put String Value In The First Argument Of addFunc() Function !&quot;);
+			
+		}
+		
+	} else {
+		
+		window.javaSnake.error(&quot;javaSnake: Put Function Value In The Second Argument Of addFunc() Function !&quot;);
+		
+	}
+	
+};
+window.javaSnake.styleToNum = function(style,minus){
+	
+	minus = (minus === undefined)? true:minus;
+	
+	var m = minus?
+		style.match(/[\-|\+]?\d+\.?\d*/gim)://Matches with calculating minus/plus
+		style.match(/\d+\.?\d*/gim);//Matches without calculating minus/plus
+	
+	if(m !== null){
+		for(let i=0; i&lt;m.length; i++) m[i] = (typeof m[i] != &quot;string&quot;)? 0:parseFloat(m[i]);
+		return m;
+	}
+	return [0];
+	
+};
+window.javaSnake.arrCopy = function(arr){
+	
+	if((typeof arr == &#39;object&#39; || typeof arr == &#39;array&#39;) &amp;&amp; arr.length){
+		
+		var newArr = [];
+		
+		for(let i=0; i&lt;arr.length; i++) newArr.push(arr[i]);
+		
+		return newArr;
+		
+	} else {
+		
+		window.javaSnake.error(&quot;javaSnake: Put Array Value In arrCopy() Function !&quot;);
+		
+	}
+	
+};
+window.javaSnake.getAjax   = function(){
+	
+	var ajaxObj = null;
+	
+	try {
+		ajaxObj = new XMLHttpRequest();
+	} catch(e) {	
+		try {
+			ajaxObj = new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;);
+		} catch(e) {
+			try {
+				ajaxObj = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+			} catch(e) {
+				ajaxObj = &quot;A newer browser is needed !&quot;;
+			}
+		}
+	}
+	
+	ajaxObj.set = function(obj){
+		
+		if(typeof obj == &#39;object&#39;){
+			
+			for(let p in obj){
+				
+				var temp = p.toLowerCase();
+				
+				switch(temp){
+					
+					case &#39;type&#39;:
+						
+						if(typeof obj[p] == &#39;string&#39;){
+							
+							this[&quot;s_&quot; + temp] = obj[p];
+							
+						} else {
+							
+							window.javaSnake.error(&quot;javaSnake_ajax: Put String Value In &#39;type&#39; Property !&quot;);
+							
+						}
+						
+					break;
+					case &#39;url&#39;:
+						
+						if(typeof obj[p] == &#39;string&#39;){
+							
+							this[&quot;s_&quot; + temp] = obj[p];
+							
+						} else {
+							
+							window.javaSnake.error(&quot;javaSnake_ajax: Put String Value In &#39;url&#39; Property !&quot;);
+							
+						}
+						
+					break;
+					case &#39;sync&#39;:
+						
+						if(typeof obj[p] == &#39;boolean&#39;){
+							
+							this[&quot;s_&quot; + temp] = obj[p];
+							
+						} else {
+							
+							window.javaSnake.error(&quot;javaSnake_ajax: Put Boolean Value In &#39;sync&#39; Property !&quot;);
+							
+						}
+						
+					break;
+					case &#39;data&#39;:
+						
+						if(typeof obj[p] == &#39;string&#39;){
+							
+							this[&quot;s_&quot; + temp] = obj[p];
+							
+						} else {
+							
+							window.javaSnake.error(&quot;javaSnake_ajax: Put String Value In &#39;data&#39; Property !&quot;);
+							
+						}
+						
+					break;
+					case &#39;success&#39;:
+						
+						if(typeof obj[p] == &#39;function&#39;){
+							
+							this[&quot;s_&quot; + temp] = obj[p];
+							
+						} else {
+							
+							window.javaSnake.error(&quot;javaSnake_ajax: Put Function Value In &#39;success&#39; Property !&quot;);
+							
+						}
+						
+					break;
+					case &#39;fail&#39;:
+						
+						if(typeof obj[p] == &#39;function&#39;){
+							
+							this[&quot;s_&quot; + temp] = obj[p];
+							
+						} else {
+							
+							window.javaSnake.error(&quot;javaSnake_ajax: Put Function Value In &#39;fail&#39; Property !&quot;);
+							
+						}
+						
+					break;
+					
+				}
+				
+			} //End Of Loading Values
+			
+			if(this.s_sync === undefined) this.s_sync = false;
+			if(this.s_data === undefined) this.s_data = null ;
+			if(this.s_fail === undefined) this.s_fail = function(){};
+			if(this.s_success === undefined) this.s_success = function(){};
+			
+			this.open(this.s_type,this.s_url,this.s_sync);
+			this.send(this.s_data);
+			
+			if(this.s_sync){
+				
+				this.onreadystatechange = function(){
+					if(this.readyState == 4){
+						
+						if(this.status == 200){
+							
+							this.s_success();
+							
+						} else {
+							
+							this.s_fail();
+							
+						}
+						
+					}
+				};
+				
+			} else {
+				
+				if(this.status == 200){
+					
+					this.s_success();
+					
+				} else {
+					
+					this.s_fail();
+					
+				}
+				
+			}
+			
+			return this;
+			
+		} else {
+			
+			window.javaSnake.error(&quot;javaSnake_ajax: Put Object Value In set() Function !&quot;);
+			
+		}
+		
+	};
+	
+	return ajaxObj;
+};
+window.javaSnake.ajax = function(obj){
+	
+	if(typeof obj == &#39;object&#39;){
+		
+		var ajaxObj = null;
+		
+		try {
+			
+			ajaxObj = new XMLHttpRequest();
+			
+		} catch(e) {
+			
+			try {
+				
+				ajaxObj = new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;);
+				
+			} catch(e) {
+				
+				try {
+					
+					ajaxObj = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+					
+				} catch(e) {
+					
+					ajaxObj = &quot;A newer browser is needed !&quot;;
+					
+				}
+				
+			}
+			
+		}
+		
+		for(let p in obj){
+			
+			var temp = p.toLowerCase();
+			
+			switch(temp){
+				
+				case &#39;type&#39;:
+					
+					if(typeof obj[p] == &#39;string&#39;){
+						
+						ajaxObj[&quot;s_&quot; + temp] = obj[p];
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Put String Value In &#39;type&#39; Property !&quot;);
+						
+					}
+					
+				break;
+				case &#39;url&#39;:
+					
+					if(typeof obj[p] == &#39;string&#39;){
+						
+						ajaxObj[&quot;s_&quot; + temp] = obj[p];
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Put String Value In &#39;url&#39; Property !&quot;);
+						
+					}
+					
+				break;
+				case &#39;sync&#39;:
+					
+					if(typeof obj[p] == &#39;boolean&#39;){
+						
+						ajaxObj[&quot;s_&quot; + temp] = obj[p];
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Put Boolean Value In &#39;sync&#39; Property !&quot;);
+						
+					}
+					
+				break;
+				case &#39;data&#39;:
+					
+					if(typeof obj[p] == &#39;string&#39;){
+						
+						ajaxObj[&quot;s_&quot; + temp] = obj[p];
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Put String Value In &#39;data&#39; Property !&quot;);
+						
+					}
+					
+				break;
+				case &#39;headprop&#39;:
+					
+					if(typeof obj[p] == &#39;string&#39;){
+						
+						ajaxObj[&quot;s_&quot; + temp] = obj[p];
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Put String Value In &#39;HeadProp&#39; Property !&quot;);
+						
+					}
+					
+				break;
+				case &#39;headval&#39;:
+					
+					if(typeof obj[p] == &#39;string&#39;){
+						
+						ajaxObj[&quot;s_&quot; + temp] = obj[p];
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Put String Value In &#39;HeadVal&#39; Property !&quot;);
+						
+					}
+					
+				break;
+				case &#39;success&#39;:
+					
+					if(typeof obj[p] == &#39;function&#39;){
+						
+						ajaxObj[&quot;s_&quot; + temp] = obj[p];
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Put Function Value In &#39;success&#39; Property !&quot;);
+						
+					}
+					
+				break;
+				case &#39;fail&#39;:
+					
+					if(typeof obj[p] == &#39;function&#39;){
+						
+						ajaxObj[&quot;s_&quot; + temp] = obj[p];
+						
+					} else {
+						
+						window.javaSnake.error(&quot;javaSnake_ajax: Put Function Value In &#39;fail&#39; Property !&quot;);
+						
+					}
+					
+				break;
+				//****************Develop It !****************
+				//You Can Also Make Your Own Properties Here !
+				
+			}
+			
+		} //End Of Loading Values
+		
+		if(ajaxObj.s_sync === undefined) ajaxObj.s_sync = false;
+		if(ajaxObj.s_data === undefined) ajaxObj.s_data = null ;
+		if(ajaxObj.s_fail === undefined) ajaxObj.s_fail = function(){};
+		if(ajaxObj.s_success === undefined) ajaxObj.s_success = function(){};
+		
+		ajaxObj.open( ajaxObj.s_type , ajaxObj.s_url , ajaxObj.s_sync );
+		if(ajaxObj.s_headprop != null &amp;&amp; ajaxObj.s_headval != null) ajaxObj.setRequestHeader(ajaxObj.headprop,ajaxObj.headval);
+		ajaxObj.send(ajaxObj.s_data);
+		
+		if(ajaxObj.s_sync){
+			
+			ajaxObj.onreadystatechange = function(){
+				
+				if(this.readyState == 4){
+					
+					if(this.status == 200){
+						
+						this.s_success();
+						
+					} else {
+						
+						this.s_fail();
+						
+					}
+					
+				}
+				
+			};
+			
+		} else {
+			
+			if(ajaxObj.status == 200){
+				
+				ajaxObj.s_success();
+				
+			} else {
+				
+				ajaxObj.s_fail();
+				
+			}
+			
+		}
+		
+		return ajaxObj; //To Catch Request Object
+		
+	} else {
+		
+		window.javaSnake.error(&quot;javaSnake_ajax: Put Object Value In ajax() Function !&quot;);
+		
+	}
+	
+}; //End Of ajax() Function !
+window.javaSnake.styleToJs = function (property){
+/*
+ *	Function For Convert CSS Property Name To JavaScript Style Property Name
+ */
+	property = property.toLowerCase();
+	if(property != &quot;float&quot;){
+		return property.replace(/[\-][a-z]/gm,function(match){ return match[1].toUpperCase(); });
+	}
+	return &quot;cssFloat&quot;;
+};
+window.javaSnake.jsToStyle = function (property){
+/*
+ *	Function For Convert JavaScript Style Property Name To CSS Property Name
+ */
+	if(property != &quot;cssFloat&quot;){
+		return property.replace(/[A-Z]/gm,function(match){ return &quot;-&quot; + match; });
+	}
+	return &quot;float&quot;;
+};
+window.javaSnake.isNumUndefined = function(variable){ return variable !== undefined? variable:0; };
+window.javaSnake.isBoolUndefined = function(variable){ return variable !== undefined? variable:false; };
+window.javaSnake.isStrUndefined = function(variable){ return variable !== undefined? variable:&quot;&quot;; };
+window.javaSnake.onScrollArrives = function(element,func,before){
+	
+	if(before === undefined) before = false;
+	
+	
+	if(before){
+		
+		var elemTop    = S(element).offset().top,
+			elemHeight = S(element).outerHeight(),
+			winHeight  = S(window).innerHeight(),
+			winScroll  = S(window).scrlTop();
+		
+		if(winScroll &gt; (elemTop-winHeight)){
+			
+			element.______FUNCTION_______ = func;
+			element.______FUNCTION_______();
+			element.______FUNCTION_______ = undefined;
+			
+		}
+		
+	} else {
+		
+		var elemTop    = S(element).offset().top,
+			elemHeight = S(element).outerHeight(),
+			winHeight  = S(window).innerHeight(),
+			winScroll  = S(window).scrlTop();
+		
+		if(winScroll &gt; (elemTop+elemHeight-winHeight)){
+			
+			element.______FUNCTION_______ = func;
+			element.______FUNCTION_______();
+			element.______FUNCTION_______ = undefined;
+			
+		}
+		
+	}
+	
+	S(window)
+	.onScroll(function(){
+		
+		var elemTop    = S(element).offset().top,
+			elemHeight = S(element).outerHeight(),
+			winHeight  = S(this).innerHeight(),
+			winScroll  = S(this).scrlTop();
+		
+		if(before){
+			
+			if(winScroll &gt; (elemTop-winHeight)){
+				
+				element.______FUNCTION_______ = func;
+				element.______FUNCTION_______();
+				element.______FUNCTION_______ = undefined;
+				
+			}
+		} else {
+			
+			if(winScroll &gt; (elemTop+elemHeight-winHeight)){
+				
+				element.______FUNCTION_______ = func;
+				element.______FUNCTION_______();
+				element.______FUNCTION_______ = undefined;
+				
+			}
+		}
+
+	});
+	
+};
+window.javaSnake.scrlToY = function(num,speed,delay){
+	
+	if(delay === undefined) delay = 1;
+	
+	//Calculate Speed
+	if(typeof speed == &#39;string&#39;){
+		
+		switch(speed.toLowerCase()){
+			
+			case &#39;$slow&#39;: speed = 2; break;
+			case &#39;$medium&#39;: speed = 6; break;
+			case &#39;$fast&#39;: speed = 10; break;
+			default: speed = 6; break;
+			
+		}
+		
+	} else if(speed === undefined){
+		
+		speed = 6;
+		
+	} else if(typeof speed != &#39;number&#39;){
+		
+		window.javaSnake.error(&quot;javaSnake: Put [&#39;$slow&#39;|&#39;$medium&#39;|&#39;$fast&#39;] Or #undefined Or Number Value\nIn The Second Argument Of scrlToY()&quot;);
+		
+	}
+	
+	//Falut Tulerance Of Speed
+	if(speed &lt; 0) speed *= -1;
+	else if(speed == 0) speed = 6;
+	
+	var lastPosition = null;
+	
+	//Make Animation
+	if(num &gt; window.pageYOffset){
+		
+		function scrlAnim(){
+			
+			if(window.pageYOffset != lastPosition){
+				if(num &gt; window.pageYOffset){
+					
+					if((num - window.pageYOffset) &gt;= speed){
+						
+						lastPosition = window.pageYOffset;
+						window.scrollTo(window.pageXOffset,window.pageYOffset + speed);
+						
+					} else {
+						
+						lastPosition = window.pageYOffset;
+						window.scrollTo(window.pageXOffset,window.pageYOffset + (num - window.pageYOffset));
+						clearInterval(inter);
+						
+					}
+					
+				} else {
+					
+					clearInterval(inter);
+					
+				}
+			} else {
+				
+				clearInterval(inter);
+				
+			}
+			
+		}
+		
+		var inter = setInterval(scrlAnim,delay);
+		
+		
+	} else if(num &lt; window.pageYOffset){
+		
+		function scrlAnim(){
+			
+			if(window.pageYOffset != lastPosition){
+				if(num &lt; window.pageYOffset){
+					
+					if((window.pageYOffset - num) &gt;= speed){
+						
+						lastPosition = window.pageYOffset;
+						window.scrollTo(window.pageXOffset,window.pageYOffset - speed);
+						
+					} else {
+						
+						lastPosition = window.pageYOffset;
+						window.scrollTo(window.pageXOffset,window.pageYOffset - (window.pageYOffset - num));
+						clearInterval(inter);
+						
+					}
+					
+				} else {
+					
+					clearInterval(inter);
+					
+				}
+			} else {
+				
+				clearInterval(inter);
+				
+			}
+			
+		}
+		
+		var inter = setInterval(scrlAnim,delay);
+		
+		
+	}
+	
+};
+window.javaSnake.scrlToX = function(num,speed,delay){
+	
+	if(delay === undefined) delay = 1;
+	
+	//Calculate Speed
+	if(typeof speed == &#39;string&#39;){
+		
+		switch(speed.toLowerCase()){
+			
+			case &#39;$slow&#39;: speed = 2; break;
+			case &#39;$medium&#39;: speed = 6; break;
+			case &#39;$fast&#39;: speed = 10; break;
+			default: speed = 6; break;
+			
+		}
+		
+	} else if(speed === undefined){
+		
+		speed = 6;
+		
+	} else if(typeof speed != &#39;number&#39;){
+		
+		window.javaSnake.error(&quot;javaSnake: Put [&#39;$slow&#39;|&#39;$medium&#39;|&#39;$fast&#39;] Or #undefined Or Number Value\nIn The Second Argument Of scrlToX()&quot;);
+		
+	}
+	
+	//Falut Tulerance Of Speed
+	if(speed &lt; 0) speed *= -1;
+	else if(speed == 0) speed = 6;
+	
+	var lastPosition = null;
+	
+	//Make Animation
+	if(num &gt; window.pageXOffset){
+		
+		function scrlAnim(){
+			
+			if(window.pageXOffset != lastPosition){
+				if(num &gt; window.pageXOffset){
+					
+					if((num - window.pageXOffset) &gt;= speed){
+						
+						lastPosition = window.pageXOffset;
+						window.scrollTo(window.pageXOffset + speed,window.pageYOffset);
+						
+					} else {
+						
+						lastPosition = window.pageXOffset;
+						window.scrollTo(window.pageXOffset + (num - window.pageXOffset),window.pageYOffset);
+						clearInterval(inter);
+						
+					}
+					
+				} else {
+					
+					clearInterval(inter);
+					
+				}
+			} else {
+				
+				clearInterval(inter);
+				
+			}
+			
+		}
+		
+		var inter = setInterval(scrlAnim,delay);
+		
+		
+	} else if(num &lt; window.pageXOffset){
+		
+		function scrlAnim(){
+			
+			if(window.pageXOffset != lastPosition){
+				if(num &lt; window.pageXOffset){
+					
+					if((window.pageXOffset - num) &gt;= speed){
+						
+						lastPosition = window.pageXOffset;
+						window.scrollTo(window.pageXOffset - speed,window.pageYOffset);
+						
+					} else {
+						
+						lastPosition = window.pageXOffset;
+						window.scrollTo(window.pageXOffset - (window.pageXOffset - num),window.pageYOffset);
+						clearInterval(inter);
+						
+					}
+					
+				} else {
+					
+					clearInterval(inter);
+					
+				}
+			} else {
+				
+				clearInterval(inter);
+				
+			}
+			
+		}
+		
+		var inter = setInterval(scrlAnim,delay);
+		
+		
+	}
+	
+};
+window.javaSnake.scrlToXY = function(num,speed,delay){
+	
+	window.javaSnake.scrlToX(num,speed,delay);
+	window.javaSnake.scrlToY(num,speed,delay);
+	
+};
+window.javaSnake.scrlToX_elem = function(element,num,speed,delay){
+	
+	if(delay === undefined) delay = 1;
+	
+	//Calculate Speed
+	if(typeof speed == &#39;string&#39;){
+		
+		switch(speed.toLowerCase()){
+			
+			case &#39;$slow&#39;: speed = 2; break;
+			case &#39;$medium&#39;: speed = 6; break;
+			case &#39;$fast&#39;: speed = 10; break;
+			default: speed = 6; break;
+			
+		}
+		
+	} else if(speed === undefined){
+		
+		speed = 6;
+		
+	} else if(typeof speed != &#39;number&#39;){
+		
+		window.javaSnake.error(&quot;javaSnake: Put [&#39;$slow&#39;|&#39;$medium&#39;|&#39;$fast&#39;] Or #undefined Or Number Value\nIn The Third Argument Of scrlToX_elem()&quot;);
+		
+	}
+	
+	//Falut Tulerance Of Speed
+	if(speed &lt; 0) speed *= -1;
+	else if(speed == 0) speed = 6;
+	
+	var lastPosition = null;
+	
+	//Make Animation
+	if(num &gt; element.scrollLeft){
+		
+		function scrlAnim(){
+			
+			if(element.scrollLeft != lastPosition){
+				if(num &gt; element.scrollLeft){
+					
+					if((num - element.scrollLeft) &gt;= speed){
+						
+						lastPosition = element.scrollLeft;
+						element.scrollLeft = element.scrollLeft + speed;
+						
+					} else {
+						
+						lastPosition = element.scrollLeft;
+						element.scrollLeft = element.scrollLeft + (num - element.scrollLeft);
+						clearInterval(inter);
+						
+					}
+					
+				} else {
+					
+					clearInterval(inter);
+					
+				}
+			} else {
+				
+				clearInterval(inter);
+				
+			}
+			
+		}
+		
+		var inter = setInterval(scrlAnim,delay);
+		
+		
+	} else if(num &lt; element.scrollLeft){
+		
+		function scrlAnim(){
+			
+			if(element.scrollLeft != lastPosition){
+				if(num &lt; element.scrollLeft){
+					
+					if((element.scrollLeft - num) &gt;= speed){
+						
+						lastPosition = element.scrollLeft;
+						element.scrollLeft = element.scrollLeft - speed;
+						
+					} else {
+						
+						lastPosition = element.scrollLeft;
+						element.scrollLeft = element.scrollLeft - (element.scrollLeft - num);
+						clearInterval(inter);
+						
+					}
+					
+				} else {
+					
+					clearInterval(inter);
+					
+				}
+			} else {
+				
+				clearInterval(inter);
+				
+			}
+			
+		}
+		
+		var inter = setInterval(scrlAnim,delay);
+		
+		
+	}
+	
+};
+window.javaSnake.scrlToY_elem = function(element,num,speed,delay){
+	
+	if(delay === undefined) delay = 1;
+	
+	//Calculate Speed
+	if(typeof speed == &#39;string&#39;){
+		
+		switch(speed.toLowerCase()){
+			
+			case &#39;$slow&#39;: speed = 2; break;
+			case &#39;$medium&#39;: speed = 6; break;
+			case &#39;$fast&#39;: speed = 10; break;
+			default: speed = 6; break;
+			
+		}
+		
+	} else if(speed === undefined){
+		
+		speed = 6;
+		
+	} else if(typeof speed != &#39;number&#39;){
+		
+		window.javaSnake.error(&quot;javaSnake: Put [&#39;$slow&#39;|&#39;$medium&#39;|&#39;$fast&#39;] Or #undefined Or Number Value\nIn The Third Argument Of scrlToY_elem()&quot;);
+		
+	}
+	
+	//Falut Tulerance Of Speed
+	if(speed &lt; 0) speed *= -1;
+	else if(speed == 0) speed = 6;
+	
+	var lastPosition = null;
+	
+	//Make Animation
+	if(num &gt; element.scrollTop){
+		
+		function scrlAnim(){
+			
+			if(element.scrollTop != lastPosition){
+				if(num &gt; element.scrollTop){
+					
+					if((num - element.scrollTop) &gt;= speed){
+						
+						lastPosition = element.scrollTop;
+						element.scrollTop = element.scrollTop + speed;
+						
+					} else {
+						
+						lastPosition = element.scrollTop;
+						element.scrollTop = element.scrollTop + (num - element.scrollTop);
+						clearInterval(inter);
+						
+					}
+					
+				} else {
+					
+					clearInterval(inter);
+					
+				}
+			} else {
+				
+				clearInterval(inter);
+				
+			}
+			
+		}
+		
+		var inter = setInterval(scrlAnim,delay);
+		
+		
+	} else if(num &lt; element.scrollTop){
+		
+		function scrlAnim(){
+			
+			if(element.scrollTop != lastPosition){
+				if(num &lt; element.scrollTop){
+					
+					if((element.scrollTop - num) &gt;= speed){
+						
+						lastPosition = element.scrollTop;
+						element.scrollTop = element.scrollTop - speed;
+						
+					} else {
+						
+						lastPosition = element.scrollTop;
+						element.scrollTop = element.scrollTop - (element.scrollTop - num);
+						clearInterval(inter);
+						
+					}
+					
+				} else {
+					
+					clearInterval(inter);
+					
+				}
+			} else {
+				
+				clearInterval(inter);
+				
+			}
+			
+		}
+		
+		var inter = setInterval(scrlAnim,delay);
+		
+		
+	}
+	
+};
+window.javaSnake.scrlToXY_elem = function(element,num,speed,delay){
+	
+	window.javaSnake.scrlToX_elem(element,num,speed,delay);
+	window.javaSnake.scrlToY_elem(element,num,speed,delay);
+	
+};
+window.javaSnake.rev = function(arr){
+	
+	try{
+		
+		if(arr.push){
+			
+			var rev = window.javaSnake.arrCopy(arr);
+			arr.splice(0,arr.length);
+			for(let i=rev.length-1; i&gt;=0; i--) arr.push(rev[i]);
+			
+		} else {
+			
+			var rev = arr;
+			arr = &quot;&quot;;
+			for(let i=rev.length-1; i&gt;=0; i--) arr.push(rev[i]);
+			
+		}
+		
+		return arr;
+		
+	}catch(e){
+		
+		window.javaSnake.error(&quot;javaSnake: Put Array Or String Value In reverse() Function.&quot;);
+		
+	}
+	
+}
+//A Function For Fire A Function Once, After Scroll Arrives
+window.javaSnake.onScrollArrivesOnce = function(element,func,before){
+	
+	if(before === undefined) before = false;
+	
+	var elemTop    = S(element).offset().top,
+		elemHeight = S(element).outerHeight(),
+		winHeight  = S(window).innerHeight(),
+		winScroll  = S(window).scrlTop();
+	
+	var OSAfuncB = function(){
+		
+		var elemTop    = S(element).offset().top,
+			elemHeight = S(element).outerHeight(),
+			winHeight  = S(window).innerHeight(),
+			winScroll  = S(window).scrlTop();
+		
+		if(winScroll &gt; (elemTop-winHeight)){
+			
+			element.______FUNCTION_______ = func;
+			element.______FUNCTION_______();
+			element.______FUNCTION_______ = undefined;
+			window.javaSnake.removeEvent(OSAfuncB, &quot;scroll&quot;, window);
+			
+		}
+
+	};
+	var OSAfuncNB = function(){
+		
+		var elemTop    = S(element).offset().top,
+			elemHeight = S(element).outerHeight(),
+			winHeight  = S(window).innerHeight(),
+			winScroll  = S(window).scrlTop();
+		
+		if(winScroll &gt; ((elemTop+elemHeight)-winHeight)){
+			
+			element.______FUNCTION_______ = func;
+			element.______FUNCTION_______();
+			element.______FUNCTION_______ = undefined;
+			window.javaSnake.removeEvent(OSAfuncNB, &quot;scroll&quot;, window);
+			
+		}
+
+	};
+	
+	if(before){
+		
+		if(winScroll &gt; (elemTop-winHeight)){
+			
+			element.______FUNCTION_______ = func;
+			element.______FUNCTION_______();
+			element.______FUNCTION_______ = undefined;
+			
+		} else {
+			
+			window.javaSnake.addEvent(OSAfuncB,&quot;scroll&quot;, window);
+			
+		}
+		
+	} else {
+		
+		if(winScroll &gt; ((elemTop+elemHeight)-winHeight)){
+			
+			element.______FUNCTION_______ = func;
+			element.______FUNCTION_______();
+			element.______FUNCTION_______ = undefined;
+			
+		} else {
+			
+			window.javaSnake.addEvent(OSAfuncNB,&quot;scroll&quot;, window);
+			
+		}
+		
+	}
+	
+};
+window.javaSnake.realStyle = function(element, property, pseudoElt){
+	
+	if(pseudoElt === undefined) pseudoElt = null;
+	
+	return window.getComputedStyle(element,pseudoElt).getPropertyValue(property);
+	
+};
+//Main Variables In javaSnake (Object Mode)
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+
+window.javaSnake.selected = null;
+window.javaSnake.vars = {};
+window.javaSnake.onLoadReloadVars = function(){
+	
+	var allElements = document.querySelectorAll(&quot;*&quot;),
+		reg1 = /[\{]{2,2}[a-z|_|\$][a-z|0-9|_|\$]+[\}]{2,2}/gim,//To Get {{VARIBALE-Name}}
+		reg2 = /(^[\{]{2,})|([\}]{2,}$)/gi;//To Convert {{VARIABLE-NAME}} &gt;&gt; VARIABLE-NAME
+	
+	for(let g=0; g&lt;allElements.length; g++){
+		
+		//Reload Attributes
+		for(let i=0; i&lt;allElements[g].attributes.length; i++){
+			var attrTxt = allElements[g].attributes[i].value,
+				m = attrTxt.match(reg1);
+			if(m !== null &amp;&amp; m !== undefined){
+				for(let j=0; j&lt;m.length; j++){
+					var p = m[j].replace(reg2,&quot;&quot;);
+					if(p in window.javaSnake.vars){
+						attrTxt = attrTxt.replace(m[j],window.javaSnake.vars[p]);
+					}
+				}
+				allElements[g].attributes[i].value = attrTxt;
+			}
+		}
+		
+		//Reload innerHTMLs
+		var html = allElements[g].innerHTML,
+			m = html.match(reg1);
+		if(m !== null &amp;&amp; m !== undefined){
+			for(let i=0; i&lt;m.length; i++){
+				var p = m[i].replace(reg2,&quot;&quot;);
+				if(p in window.javaSnake.vars){
+					html = html.replace(m[i],window.javaSnake.vars[p]);
+				}
+			}
+			allElements[g].innerHTML = html;
+		}
+		
+	}
+	
+};
+window.javaSnake.onLoadUpdateVars = function(varName,varValue){
+	
+	window.javaSnake.addEvent(function(){
+	
+		var whiteSpacesVarNameReg = /[\s]+/gim,
+				  validVarNameReg = /^[a-z|_|\$]/i;
+		
+		if(typeof varName === &quot;string&quot;){
+			
+			//Remove White Spaces
+			varName = varName.replace(whiteSpacesVarNameReg,&quot;&quot;);
+			//Chack if it&#39;s an invalid var name
+			var validName = varName.search(validVarNameReg);
+			
+			if(validName !== -1){
+				
+				window.javaSnake.vars[varName] = varValue;
+				window.javaSnake.onLoadReloadVars();
+				
+			} else {
+				
+				window.javaSnake.error(&quot;javaSnake: Put A Valid Variable-Name (&quot; + varName + &quot;) In The First Argument Of updateVars() Function.&quot;);
+				
+			}
+			
+		} else if(typeof varName === &quot;object&quot;){
+			
+			for(let p in varName){
+				
+				//Remove White Spaces
+				p = p.replace(whiteSpacesVarNameReg,&quot;&quot;);
+				//Chack if it&#39;s an invalid var name
+				var validName = p.search(validVarNameReg);
+				
+				if(validName !== -1){
+					
+					window.javaSnake.vars[p] = varName[p];
+					window.javaSnake.onLoadReloadVars();
+					
+				} else {
+					
+					window.javaSnake.error(&quot;javaSnake: Put A Valid Variable-Name (&quot; + p + &quot;) In The First Argument Of updateVars() Function.&quot;);
+					
+				}
+				
+			}
+			
+		} else {
+			
+			window.javaSnake.error(&quot;javaSnake: Put A String Or Object Value In The First Argument Of updateVars() Function.&quot;);
+			
+		}
+	
+	});
+	
+};
+window.javaSnake.randomURLCode = function(len){
+	
+	len = (typeof len !== &quot;number&quot;)? 12:len;
+	
+	const CHARS = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_$-+!.*&#39;(),&quot;;
+	
+	let str = &quot;&quot;,
+		numArr,
+		rand;
+	
+	for(let i=0; i&lt;len; i++){
+		numArr = new Uint8Array(1);
+		window.crypto.getRandomValues(numArr);
+		rand = Math.floor((73*numArr[0])/256);
+		str += CHARS[rand];
+	}
+	
+	return str;
+	
+};
+window.javaSnake.randomCode = function(len,pattern){
+	
+	len = (typeof len !== &quot;number&quot;)? 12:len;
+	pattern = (typeof pattern !== &quot;string&quot;)? &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_$&quot;:pattern;
+	
+	let str = &quot;&quot;,
+		numArr,
+		rand;
+	
+	for(let i=0; i&lt;len; i++){
+		numArr = new Uint32Array(1);
+		window.crypto.getRandomValues(numArr);
+		rand = Math.floor((pattern.length*numArr[0])/4294967296);
+		str += pattern[rand];
+	}
+	
+	return str;
+	
+};
+
+//End Of javaSnake In Object Mode
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+/*
+ *	In The Name Of God
+ *	javaSnake &gt; JavaScript {For DOM Objects}
+ *	By SMRSAN
+ *	
+ *	WebLog:
+ *			http://mreza-7.blogfa.com/
+ *	WebSite:
+ *			http://www.javaSnake.com/
+ */
+
+HTMLElement.prototype.c$$ = function (/*{Style Object} or &quot;Style String&quot;*/){
+/*
+ *	c$$ Function
+ *	For Easier Style
+ *	In  JavaScript
+ */
+
+	var props	= [],
+		vals	 = [],
+		returnProp = null;
+	/*
+	 *	Load Properties And Values
+	 */
+	for(let j=0; j&lt;arguments.length; j++){ //ForEach Arg
+		var style = arguments[j];
+		if(typeof style == &#39;string&#39;){
+			
+			var arr = style.split(/[\:|;]/g);
+			for(let i=0; i&lt;arr.length; i += 2) props.push(arr[i].replace(/ /g,&quot;&quot;));
+			for(let i=1; i&lt;arr.length; i += 2) vals.push(arr[i]);
+			
+		} else if(typeof style == &#39;object&#39;){
+			for(let myStyleName in style){
+				if(myStyleName in this.style){
+					
+					if(style[myStyleName].toLowerCase().trim() == &quot;$get&quot;){//Get Property Command
+						returnProp = this.style[myStyleName];
+						continue;
+					}
+					
+					this.style[myStyleName] = style[myStyleName];
+				}
+			}
+		}
+	}
+	/*
+	 *	Do Styles On Element
+	 */
+	for(let j=0; j&lt;props.length; j++){ //ForEach Style
+		props[j] = props[j].toLowerCase();
+		var p = S.styleToJs(props[j]);
+		if(vals[j].toLowerCase().trim() == &quot;$get&quot;){//Get Property Command
+			returnProp = this.style[p];
+			continue;
+		}
+		if(p in this.style) this.style[p] = vals[j];
+	}
+	return returnProp;/*Properties Or Null*/
+};
+HTMLElement.prototype.css = function (){
+/*
+ *	Function For Set Some Style (Like jQuery Library)
+ */
+	for(let g=0; g&lt;arguments.length; g++){
+		
+		if(typeof arguments[g] == &#39;object&#39;){
+			
+			var styleObj = arguments[g];
+				
+			for(let myStyleName in styleObj){
+				
+				if(myStyleName in this.style){
+					
+					this.style[myStyleName] = styleObj[myStyleName];
+					
+				}
+				
+			}
+			
+		} else if(typeof arguments[g] == &#39;string&#39;){
+			
+			if(typeof arguments[g+1] == &#39;string&#39;){
+				
+				if(arguments[g] in this.style){
+						
+					this.style[arguments[g]] = arguments[g+1];
+					
+				}
+				
+			} else {
+				
+				if(arguments[g] in this.style){
+					
+					return this.style[arguments[g]];
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+};
+/* MIT OpenSource License
+ *
+ * Copyright 2016-2017 javaSnake (By SMRSAN)
+ * Permission is hereby granted, free of charge,
+ * to any person obtaining a copy of this software
+ * and associated documentation files (the &quot;Snake.js&quot;),
+ * to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify,
+ * merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom
+ * the Software is furnished to do so, subject to the
+ * following conditions:
+ * The above copyright notice and this permission notice
+ * shall be included in all copies or substantial portions
+ * of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY
+ * KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+ * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+ * THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+*/
+&lt;/script&gt;</pre></div>
+
+<p>These are the codes that used in SnakeJS javascript library.</p>
+
+</body>
+</html>
